@@ -1,0 +1,111 @@
+Time : 09:05:31
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'vizi.pin' doesn't exist
+Raw SQL : SELECT address FROM pin WHERE id = 16
+
+Time : 07:31:25
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:31:23
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:31:22
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:31:21
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:30:12
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:30:10
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:30:09
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:30:08
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:30:07
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:29:53
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:28:20
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:28:20
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:28:19
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:28:18
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:28:17
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:27:36
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:27:26
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:27:14
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:27:13
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:27:11
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:26:55
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:26:53
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:26:25
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:26:22
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:26:18
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:25:39
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )
+
+Time : 07:24:33
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT * FROM pins WHERE category_id = 1 )

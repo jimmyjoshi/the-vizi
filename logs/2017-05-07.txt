@@ -1,0 +1,11 @@
+Time : 13:09:45
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pin_id' in 'where clause'
+Raw SQL : DELETE FROM pins WHERE user_id = "17" AND pin_id = "5"
+
+Time : 13:09:16
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pin_id' in 'where clause'
+Raw SQL : DELETE FROM pins WHERE user_id = "17" AND pin_id = "5"
+
+Time : 07:17:09
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '37 )' at line 1
+Raw SQL : SELECT id, user_name, image, lat, lon, address FROM users WHERE id IN (SELECT following_id FROM follow WHERE follower_id = 17,37 )

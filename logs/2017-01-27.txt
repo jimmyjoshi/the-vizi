@@ -1,0 +1,19 @@
+Time : 04:05:03
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO categories(name, user_id) VALUES(:name, :user_id)
+
+Time : 03:46:08
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.user_id' in 'IN/ALL/ANY subquery'
+Raw SQL : SELECT * FROM categories WHERE c.user_id IN (SELECT id FROM users WHERE role LIKE "admin" )
+
+Time : 03:31:44
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'field list'
+Raw SQL : INSERT INTO users(name, email, password, status, role) VALUES(:name, :email, :password, :status, :role)
+
+Time : 03:09:37
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'field list'
+Raw SQL : SELECT id, name FROM users
+
+Time : 02:58:17
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.name' in 'field list'
+Raw SQL : SELECT c.*, u.name AS user_name FROM categories c LEFT JOIN users u ON u.id = c.user_id WHERE c.user_id IN (SELECT id FROM users WHERE role LIKE "user" )

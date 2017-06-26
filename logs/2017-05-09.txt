@@ -1,0 +1,11 @@
+Time : 22:47:38
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cateogry_id' in 'field list'
+Raw SQL : SELECT id, name, image, user_id FROM categories WHERE id IN (SELECT cateogry_id FROM pins WHERE address LIKE "Amesbury, United Kingdom" AND user_id = 33 )
+
+Time : 22:38:42
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'unique(address) as city FROM pins WHERE user_id = 17' at line 1
+Raw SQL : SELECT unique(address) as city FROM pins WHERE user_id = 17
+
+Time : 22:37:46
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+Raw SQL : SELECT address as city FROM pins WHERE user_id = 17 )

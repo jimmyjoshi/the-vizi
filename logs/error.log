@@ -1,0 +1,95 @@
+[Thu Jan 26 10:56:06.879066 2017] [:error] [pid 2588] [client 175.100.170.89:59439] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:06.918807 2017] [:error] [pid 2588] [client 175.100.170.89:59439] script '/var/www/html/vizi/login.php' not found or unable to stat
+[Thu Jan 26 10:56:11.420649 2017] [:error] [pid 2588] [client 175.100.170.89:59439] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:11.528010 2017] [:error] [pid 2588] [client 175.100.170.89:59439] script '/var/www/html/vizi/login.php' not found or unable to stat
+[Thu Jan 26 10:56:30.755845 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:30.794953 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:30.831900 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:30.866340 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:30.901471 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:30.936943 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:30.972535 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.004135 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.041157 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.316980 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.351303 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.391638 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.424028 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.461071 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.495772 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.532029 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.581988 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.613396 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.658980 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.703628 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:56:31.736232 2017] [:error] [pid 2590] [client 175.100.170.89:59443] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/index.php on line 4
+[Thu Jan 26 10:57:15.908492 2017] [:error] [pid 2591] [client 175.100.170.89:59460] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/login.php on line 4
+[Thu Jan 26 10:57:18.547185 2017] [:error] [pid 2863] [client 175.100.170.89:59461] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/login.php on line 4
+[Thu Jan 26 11:01:35.377011 2017] [:error] [pid 2587] [client 175.100.170.89:59515] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/login.php on line 4
+[Thu Jan 26 11:01:36.870424 2017] [:error] [pid 2789] [client 175.100.170.89:59517] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/login.php on line 4
+[Thu Jan 26 11:01:42.975026 2017] [:error] [pid 2589] [client 175.100.170.89:59519] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/login.php on line 4
+[Thu Jan 26 11:02:09.532185 2017] [:error] [pid 2588] [client 175.100.170.89:59525] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/login.php on line 4
+[Thu Jan 26 11:02:11.268606 2017] [:error] [pid 2590] [client 175.100.170.89:59528] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/login.php on line 4
+[Thu Jan 26 11:02:11.541910 2017] [:error] [pid 2591] [client 175.100.170.89:59529] PHP Fatal error:  Call to undefined function getDomainInfo() in /var/www/html/vizi/login.php on line 4
+[Thu Jan 26 11:03:25.866191 2017] [:error] [pid 2789] [client 175.100.170.89:59555] PHP Notice:  Undefined index: sub in /var/www/html/vizi/login.php on line 59
+[Thu Jan 26 11:03:25.866215 2017] [:error] [pid 2789] [client 175.100.170.89:59555] PHP Notice:  Undefined variable: title in /var/www/html/vizi/login.php on line 67
+[Thu Jan 26 11:04:42.340040 2017] [:error] [pid 2587] [client 175.100.170.89:59586] PHP Notice:  Undefined variable: title in /var/www/html/vizi/login.php on line 65
+[Thu Jan 26 11:56:38.591404 2017] [:error] [pid 2646] [client 175.100.170.89:59892] PHP Notice:  Undefined variable: did in /var/www/html/vizi/login.php on line 11, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 11:56:38.594807 2017] [:error] [pid 2646] [client 175.100.170.89:59892] PHP Notice:  Undefined index: role in /var/www/html/vizi/login.php on line 26, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 11:56:38.594818 2017] [:error] [pid 2646] [client 175.100.170.89:59892] PHP Notice:  Undefined index: role in /var/www/html/vizi/login.php on line 26, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 11:56:38.594822 2017] [:error] [pid 2646] [client 175.100.170.89:59892] PHP Notice:  Undefined index: role in /var/www/html/vizi/login.php on line 28, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 11:56:38.594828 2017] [:error] [pid 2646] [client 175.100.170.89:59892] PHP Notice:  Undefined variable: title in /var/www/html/vizi/login.php on line 65, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 11:57:51.637339 2017] [:error] [pid 3045] [client 175.100.170.89:59959] PHP Notice:  Undefined variable: title in /var/www/html/vizi/login.php on line 60
+[Thu Jan 26 11:58:18.313428 2017] [:error] [pid 2589] [client 175.100.170.89:59969] PHP Notice:  Undefined variable: title in /var/www/html/vizi/login.php on line 61
+[Thu Jan 26 11:58:25.526539 2017] [:error] [pid 2588] [client 175.100.170.89:59975] PHP Notice:  Undefined index: role in /var/www/html/vizi/login.php on line 21, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 11:58:25.526573 2017] [:error] [pid 2588] [client 175.100.170.89:59975] PHP Notice:  Undefined index: role in /var/www/html/vizi/login.php on line 21, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 11:58:25.526577 2017] [:error] [pid 2588] [client 175.100.170.89:59975] PHP Notice:  Undefined index: role in /var/www/html/vizi/login.php on line 23, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 11:58:50.525750 2017] [:error] [pid 3221] [client 175.100.170.89:59983] PHP Notice:  Undefined index: role in /var/www/html/vizi/login.php on line 23, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 11:58:50.525785 2017] [:error] [pid 3221] [client 175.100.170.89:59983] PHP Notice:  Undefined index: role in /var/www/html/vizi/login.php on line 23, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 11:58:50.525789 2017] [:error] [pid 3221] [client 175.100.170.89:59983] PHP Notice:  Undefined index: role in /var/www/html/vizi/login.php on line 25, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 11:58:59.732881 2017] [:error] [pid 3221] [client 175.100.170.89:59983] PHP Notice:  Undefined variable: title in /var/www/html/vizi/login.php on line 63
+[Thu Jan 26 11:59:19.980713 2017] [:error] [pid 2646] [client 175.100.170.89:60008] PHP Notice:  Undefined index: role in /var/www/html/vizi/login.php on line 23, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 11:59:19.980739 2017] [:error] [pid 2646] [client 175.100.170.89:60008] PHP Notice:  Undefined index: role in /var/www/html/vizi/login.php on line 23, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 11:59:19.980743 2017] [:error] [pid 2646] [client 175.100.170.89:60008] PHP Notice:  Undefined index: role in /var/www/html/vizi/login.php on line 25, referer: http://vizi.intellactsoft.com/login.php
+[Thu Jan 26 12:04:03.587545 2017] [:error] [pid 2789] [client 175.100.170.89:60179] PHP Notice:  Undefined index: role in /var/www/html/vizi/config.php on line 58
+[Thu Jan 26 12:04:03.587565 2017] [:error] [pid 2789] [client 175.100.170.89:60179] PHP Fatal error:  Call to undefined function getheader() in /var/www/html/vizi/admin/header.php on line 7
+[Thu Jan 26 12:04:05.167090 2017] [:error] [pid 3046] [client 175.100.170.89:60180] PHP Notice:  Undefined index: role in /var/www/html/vizi/config.php on line 58
+[Thu Jan 26 12:04:05.167112 2017] [:error] [pid 3046] [client 175.100.170.89:60180] PHP Fatal error:  Call to undefined function getheader() in /var/www/html/vizi/admin/header.php on line 7
+[Thu Jan 26 12:04:30.336560 2017] [:error] [pid 2587] [client 175.100.170.89:60192] PHP Notice:  Undefined index: role in /var/www/html/vizi/config.php on line 60
+[Thu Jan 26 12:04:30.336585 2017] [:error] [pid 2587] [client 175.100.170.89:60192] PHP Fatal error:  Call to undefined function getheader() in /var/www/html/vizi/admin/header.php on line 7
+[Thu Jan 26 12:04:52.064872 2017] [:error] [pid 3044] [client 175.100.170.89:60199] PHP Warning:  require(/var/www/html/vizi/header.php): failed to open stream: No such file or directory in /var/www/html/vizi/admin/dashboard.php on line 3
+[Thu Jan 26 12:04:52.064898 2017] [:error] [pid 3044] [client 175.100.170.89:60199] PHP Fatal error:  require(): Failed opening required '/var/www/html/vizi/header.php' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/html/vizi/admin/dashboard.php on line 3
+[Thu Jan 26 12:05:06.286933 2017] [:error] [pid 3045] [client 175.100.170.89:60211] PHP Notice:  Undefined index: role in /var/www/html/vizi/config.php on line 60
+[Thu Jan 26 12:05:06.286957 2017] [:error] [pid 3045] [client 175.100.170.89:60211] PHP Fatal error:  Call to undefined function getheader() in /var/www/html/vizi/admin/header.php on line 7
+[Thu Jan 26 12:05:38.862590 2017] [:error] [pid 2589] [client 175.100.170.89:60224] PHP Fatal error:  Call to undefined function redirectifnotadmin() in /var/www/html/vizi/admin/header.php on line 1
+[Thu Jan 26 12:06:35.496124 2017] [:error] [pid 2588] [client 175.100.170.89:60254] PHP Fatal error:  Call to undefined function getheader() in /var/www/html/vizi/admin/header.php on line 7
+[Fri Jan 27 02:18:32.171731 2017] [:error] [pid 3118] [client 175.100.171.128:51305] PHP Warning:  require(/var/www/html/vizi/header.php): failed to open stream: No such file or directory in /var/www/html/vizi/admin/categories/edit.php on line 27, referer: http://vizi.intellactsoft.com/admin/categories/
+[Fri Jan 27 02:18:32.171757 2017] [:error] [pid 3118] [client 175.100.171.128:51305] PHP Fatal error:  require(): Failed opening required '/var/www/html/vizi/header.php' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/html/vizi/admin/categories/edit.php on line 27, referer: http://vizi.intellactsoft.com/admin/categories/
+[Fri Jan 27 03:24:26.780502 2017] [:error] [pid 6958] [client 175.100.171.128:53163] script '/var/www/html/vizi/admin/profile.php' not found or unable to stat, referer: http://vizi.intellactsoft.com/admin/dashboard.php
+[Fri Jan 27 05:01:19.386978 2017] [:error] [pid 6504] [client 175.100.171.128:53962] script '/var/www/html/vizi/forget.php' not found or unable to stat, referer: http://vizi.intellactsoft.com/login.php
+[Fri Jan 27 05:02:15.343908 2017] [:error] [pid 6273] [client 175.100.171.128:53996] PHP Notice:  Undefined index: sub in /var/www/html/vizi/forget.php on line 69, referer: http://vizi.intellactsoft.com/login.php
+[Fri Jan 27 05:14:47.820677 2017] [:error] [pid 8554] [client 175.100.171.128:54479] script '/var/www/html/vizi/admin/profile.php' not found or unable to stat, referer: http://vizi.intellactsoft.com/admin/users/abuse.php
+[Sat Feb 11 18:12:45.587499 2017] [:error] [pid 24940] [client 175.100.174.76:51760] PHP Fatal error:  Call to undefined function sanitize_text_field() in /var/www/html/vizi/api/register.php on line 5
+[Sun Feb 12 05:11:26.602796 2017] [:error] [pid 25397] [client 175.100.174.52:54473] PHP Fatal error:  Call to a member function lastInsertId() on a non-object in /var/www/html/vizi/api/register.php on line 36
+[Sun Feb 12 05:12:37.030669 2017] [:error] [pid 10543] [client 175.100.174.52:54517] PHP Notice:  Undefined variable: ex in /var/www/html/vizi/api/register.php on line 22
+[Sun Feb 12 07:27:48.500186 2017] [:error] [pid 14111] [client 175.100.174.52:56500] PHP Warning:  move_uploaded_file(/var/www/html/vizi/public/img/users/myImage-1486884468.jpg): failed to open stream: Permission denied in /var/www/html/vizi/api/update_profile.php on line 25
+[Sun Feb 12 07:27:48.500213 2017] [:error] [pid 14111] [client 175.100.174.52:56500] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpUz1CFH' to '/var/www/html/vizi/public/img/users/myImage-1486884468.jpg' in /var/www/html/vizi/api/update_profile.php on line 25
+[Sun Feb 12 07:29:26.281543 2017] [:error] [pid 13875] [client 175.100.174.52:56539] PHP Warning:  move_uploaded_file(/var/www/html/vizi/public/img/users/myImage-1486884566.jpg): failed to open stream: Permission denied in /var/www/html/vizi/api/update_profile.php on line 25
+[Sun Feb 12 07:29:26.281569 2017] [:error] [pid 13875] [client 175.100.174.52:56539] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpfCbksL' to '/var/www/html/vizi/public/img/users/myImage-1486884566.jpg' in /var/www/html/vizi/api/update_profile.php on line 25
+[Sun Feb 12 08:50:52.352788 2017] [:error] [pid 13875] [client 175.100.174.52:57143] PHP Notice:  Undefined variable: use in /var/www/html/vizi/api/profile.php on line 16
+[Sun Feb 12 08:50:52.352812 2017] [:error] [pid 13875] [client 175.100.174.52:57143] PHP Notice:  Undefined variable: use in /var/www/html/vizi/api/profile.php on line 17
+[Wed Feb 15 03:37:41.317856 2017] [:error] [pid 13876] [client 122.102.121.112:2818] PHP Warning:  Unknown: POST Content-Length of 18098986 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
+[Wed Feb 15 12:55:28.122297 2017] [:error] [pid 21849] [client 175.100.174.116:54655] PHP Notice:  Undefined index: user_id in /var/www/html/vizi/api/register.php on line 44
+[Wed Feb 15 12:56:31.445434 2017] [:error] [pid 14111] [client 175.100.174.116:54680] PHP Notice:  Undefined index: user_id in /var/www/html/vizi/api/register.php on line 44
+[Wed Feb 15 16:07:45.927390 2017] [:error] [pid 31683] [client 122.102.121.112:11668] PHP Notice:  Undefined index: user_id in /var/www/html/vizi/api/register.php on line 44
+[Wed Feb 15 16:35:42.108629 2017] [:error] [pid 21849] [client 122.102.121.112:12126] PHP Notice:  Undefined index: user_id in /var/www/html/vizi/api/register.php on line 44
+[Wed Feb 15 16:41:25.473616 2017] [:error] [pid 13873] [client 122.102.121.112:12450] PHP Notice:  Undefined index: user_id in /var/www/html/vizi/api/register.php on line 44
+[Wed Feb 15 17:44:45.355805 2017] [:error] [pid 21850] [client 122.102.121.112:13492] PHP Notice:  Undefined index: user_id in /var/www/html/vizi/api/register.php on line 44
+[Wed Feb 15 17:47:45.703577 2017] [:error] [pid 13874] [client 122.102.121.112:13508] PHP Notice:  Undefined index: user_id in /var/www/html/vizi/api/register.php on line 44
+[Wed Feb 15 17:52:15.898293 2017] [:error] [pid 13872] [client 122.102.121.112:13545] PHP Notice:  Undefined index: user_id in /var/www/html/vizi/api/register.php on line 44
+[Wed Feb 15 18:02:10.975754 2017] [:error] [pid 13874] [client 175.100.174.223:55931] PHP Notice:  Undefined variable: use in /var/www/html/vizi/api/profile.php on line 16
+[Wed Feb 15 18:02:10.975775 2017] [:error] [pid 13874] [client 175.100.174.223:55931] PHP Notice:  Undefined variable: use in /var/www/html/vizi/api/profile.php on line 17
+[Wed Feb 15 18:02:53.619015 2017] [:error] [pid 13872] [client 122.102.121.112:13767] PHP Notice:  Undefined index: user_id in /var/www/html/vizi/api/register.php on line 44
+[Thu Feb 16 07:30:34.333247 2017] [:error] [pid 14111] [client 175.100.174.218:60853] PHP Notice:  Array to string conversion in /var/www/html/vizi/api/categories.php on line 6
+[Thu Feb 16 07:47:48.042508 2017] [:error] [pid 13873] [client 175.100.174.218:63425] PHP Notice:  Undefined index: extension in /var/www/html/vizi/admin/categories/edit.php on line 16, referer: http://vizi.intellactsoft.com/admin/categories/edit.php?id=2
+[Thu Feb 16 12:03:43.396337 2017] [:error] [pid 31683] [client 175.100.174.218:51373] PHP Notice:  Undefined index: id in /var/www/html/vizi/api/add_pin.php on line 66

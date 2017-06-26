@@ -1,0 +1,31 @@
+Time : 11:33:52
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : UPDATE users SET fbid = :fbid, lat = :lat, lon = :lon WHERE id = :id
+
+Time : 08:08:31
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IN ( SELECT id FROM follow WHERE follower_id = 17 AND following_id = 37 )' at line 1
+Raw SQL : DELETE FROM notifications WHERE type = "FOLLOW" AND obj_id = IN ( SELECT id FROM follow WHERE follower_id = 17 AND following_id = 37 )
+
+Time : 07:55:12
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : DELETE FROM follow WHERE follower_id = :user_id AND following_id = :follow_id
+
+Time : 07:52:54
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO follow (follower_id, following_id) VALUES(:user_id, :follow_id)
+
+Time : 07:52:20
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO follow (follower_id, following_id) VALUES(:user_id, :follow_id)
+
+Time : 07:51:19
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM follow WHERE follower_id = :user_id AND following_id = :follow_id
+
+Time : 06:37:12
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM users WHERE fbid = "" AND email LIKE :email
+
+Time : 06:35:43
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : SELECT * FROM users WHERE fbid = "" AND email LIKE :email

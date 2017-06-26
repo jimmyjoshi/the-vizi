@@ -1,0 +1,31 @@
+Time : 19:33:26
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : UPDATE users SET fbid = :fbid, lat = :lat, lon = :lon, address = :address, device_id = :device_id, address = :address WHERE id = :id
+
+Time : 19:33:25
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : UPDATE users SET fbid = :fbid, lat = :lat, lon = :lon, address = :address, device_id = :device_id, address = :address WHERE id = :id
+
+Time : 19:33:10
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ': device_id, address = ? WHERE id = ?' at line 1
+Raw SQL : UPDATE users SET fbid = :fbid, lat = :lat, lon = :lon, address = :address, device_id = : device_id, address = :address WHERE id = :id
+
+Time : 19:33:09
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ': device_id, address = ? WHERE id = ?' at line 1
+Raw SQL : UPDATE users SET fbid = :fbid, lat = :lat, lon = :lon, address = :address, device_id = : device_id, address = :address WHERE id = :id
+
+Time : 19:33:09
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ': device_id, address = ? WHERE id = ?' at line 1
+Raw SQL : UPDATE users SET fbid = :fbid, lat = :lat, lon = :lon, address = :address, device_id = : device_id, address = :address WHERE id = :id
+
+Time : 19:33:07
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ': device_id, address = ? WHERE id = ?' at line 1
+Raw SQL : UPDATE users SET fbid = :fbid, lat = :lat, lon = :lon, address = :address, device_id = : device_id, address = :address WHERE id = :id
+
+Time : 19:32:50
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ': device_id WHERE id = ?' at line 1
+Raw SQL : UPDATE users SET fbid = :fbid, lat = :lat, lon = :lon, address = :address, device_id = : device_id WHERE id = :id
+
+Time : 19:32:26
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ': device_id WHERE id = ?' at line 1
+Raw SQL : UPDATE users SET fbid = :fbid, lat = :lat, lon = :lon, address = :address, device_id = : device_id WHERE id = :id

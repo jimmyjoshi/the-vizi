@@ -1,0 +1,7 @@
+Time : 13:04:27
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO media (pin_id, image) VALUES(:pin_id, :image)
+
+Time : 13:03:43
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO media (pin_id, image) VALUES(:pin_id, :image)

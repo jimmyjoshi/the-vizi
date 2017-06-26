@@ -1,0 +1,11 @@
+Time : 16:19:34
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND following_id =  )' at line 1
+Raw SQL : DELETE FROM notifications WHERE type LIKE "FOLLOW" AND obj_id IN ( SELECT id FROM follow WHERE follower_id =  AND following_id =  )
+
+Time : 16:15:17
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND following_id =  )' at line 1
+Raw SQL : DELETE FROM notifications WHERE type LIKE "FOLLOW" AND obj_id IN ( SELECT id FROM follow WHERE follower_id =  AND following_id =  )
+
+Time : 11:36:33
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND following_id =  )' at line 1
+Raw SQL : DELETE FROM notifications WHERE type LIKE "FOLLOW" AND obj_id IN ( SELECT id FROM follow WHERE follower_id =  AND following_id =  )

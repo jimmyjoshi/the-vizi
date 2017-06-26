@@ -1,0 +1,39 @@
+Time : 19:07:22
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : INSERT INTO users(user_name, email, password, device_id, image) VALUES (:user_name, :email, :password, :device_id, :image)
+
+Time : 18:58:19
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : INSERT INTO users(user_name, email, password, device_id, image) VALUES (:user_name, :email, :password, :device_id, :image)
+
+Time : 18:40:16
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : INSERT INTO users(user_name, email, password, device_id, image) VALUES (:user_name, :email, :password, :device_id, :image)
+
+Time : 18:35:59
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : INSERT INTO users(user_name, email, password, device_id, image) VALUES (:user_name, :email, :password, :device_id, :image)
+
+Time : 18:35:49
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : INSERT INTO users(user_name, email, password, device_id, image) VALUES (:user_name, :email, :password, :device_id, :image)
+
+Time : 18:30:43
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : INSERT INTO users(user_name, email, password, device_id, image) VALUES (:user_name, :email, :password, :device_id, :image)
+
+Time : 18:24:39
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : INSERT INTO users(user_name, email, password, device_id, image) VALUES (:user_name, :email, :password, :device_id, :image)
+
+Time : 18:19:17
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : INSERT INTO users(user_name, email, password, device_id, image) VALUES (:user_name, :email, :password, :device_id, :image)
+
+Time : 18:17:23
+SQLSTATE[HY093]: Invalid parameter number
+Raw SQL : INSERT INTO users(user_name, email, password, device_id, image) VALUES (:user_name, :email, :password, :device_id, :image)
+
+Time : 13:55:28
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO users(user_name, email, password, device_id, image) VALUES (:user_name, :email, :password, :device_id, image)

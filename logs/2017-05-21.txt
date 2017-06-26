@@ -1,0 +1,7 @@
+Time : 21:19:06
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UPDATES pins SET  note = "Test note"  WHERE id = 102 AND user_id = 333' at line 1
+Raw SQL : UPDATES pins SET  note = "Test note"  WHERE id = 102 AND user_id = 333
+
+Time : 21:18:12
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UPDATES pins SET  note = "Test note"  WHERE id = 102 AND user_id = 333' at line 1
+Raw SQL : UPDATES pins SET  note = "Test note"  WHERE id = 102 AND user_id = 333

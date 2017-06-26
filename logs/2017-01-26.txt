@@ -1,0 +1,3 @@
+Time : 13:08:30
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'vizi.categories' doesn't exist
+Raw SQL : SELECT count(id) FROM categories 
