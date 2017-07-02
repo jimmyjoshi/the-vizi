@@ -3,7 +3,16 @@
 	global $db;
 	
 	$terms  = $db->single('SELECT data_value FROM settings where data_key = "terms"' );
-    $ret 	= array('status' => 'success', 'message' => 'Terms & Condition', 'data' => $terms);
+    /*$ret 	= array('status' => 'success', 'message' => 'Terms & Condition', 'data' => $terms);
     echo json_encode($ret);
-    die();
+    die();*/
 ?>
+
+<html>
+	<head>
+		<title>Privacy Policy</title>
+	</head>
+	<body>
+		<?php echo $terms;?>
+	</body>	
+</html>
