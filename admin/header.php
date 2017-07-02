@@ -108,8 +108,8 @@
                 $all_usrs = '';
             }
 
-            /*if (strpos( $_SERVER['REQUEST_URI'], 'settings') != false)
-                $sett = 'active';*/
+            if (strpos( $_SERVER['REQUEST_URI'], 'settings') != false)
+                $sett = 'active';
 
             if (strpos( $_SERVER['REQUEST_URI'], 'profile') != false)
                 $my_profile = 'active';
@@ -147,9 +147,9 @@
                         <li class="<?php echo $my_profile; ?>">
                             <a href="<?php echo HOST ?>admin/profile.php"><i class="fa fa-user"></i> <span class="nav-label">My Profile</span></a>
                         </li>
-                        <!-- <li class="<?php echo $sett; ?>">
+                        <li class="<?php echo $sett; ?>">
                             <a href="<?php echo HOST ?>admin/settings.php"><i class="fa fa-cogs"></i> <span class="nav-label">Settings</span></a>
-                        </li> -->
+                        </li>
                     </ul>
                 </div>
             </nav>
