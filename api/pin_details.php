@@ -16,7 +16,7 @@
     	$title = getCatName($db->single('SELECT category_id FROM pins WHERE id = ' . $_REQUEST['pin_id']));
     	$bgimg = $db->single('SELECT image FROM categories WHERE id IN (SELECT category_id FROM pins WHERE id = ' . $_REQUEST['pin_id'] . ')');
     	$pin = $db->query('SELECT id, user_id, title, address, note,lat, lon FROM pins WHERE id = ' . $_REQUEST['pin_id']);
-    	$imgs = $db->query('SELECT id, image FROM media WHERE pin_id = ' . $_REQUEST['pin_id']);
+    	$imgs = $db->query('SELECT id as image_id, image FROM media WHERE pin_id = ' . $_REQUEST['pin_id']);
 
         $pin[0]['can_delete'] = $pin[0]['user_id'] == $_REQUEST['user_id'] ? 1 : 0;
 
