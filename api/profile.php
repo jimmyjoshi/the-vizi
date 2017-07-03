@@ -20,10 +20,24 @@
             //$cats = $db->query('SELECT id, name, image, user_id FROM categories WHERE id IN (SELECT category_id FROM pins WHERE user_id = ' . $_REQUEST['user_id'] . ')');
             //$cats = $db->query('SELECT id, name, image, user_id FROM categories WHERE user_id = ' . $_REQUEST['user_id'] . '  ');
             if (isset($_REQUEST['city']) && $_REQUEST['city'] != '') {
-                $cats = $db->query('SELECT id, name, image, user_id FROM categories WHERE id IN (SELECT category_id FROM pins WHERE address LIKE "'.$_REQUEST['city'].'" AND user_id = '.$_REQUEST['user_id'].' )');
+                if($_REQUEST['current_user_id'] != $_REQUEST['user_id'])                
+                {
+                    $cats = $db->query('SELECT id, name, image, user_id, is_private FROM categories WHERE id IN (SELECT category_id FROM pins WHERE address LIKE "'.$_REQUEST['city'].'" AND is_private = 0 AND user_id = '.$_REQUEST['user_id'].' )');
+                }
+                else
+                {
+                    $cats = $db->query('SELECT id, name, image, user_id, is_private FROM categories WHERE id IN (SELECT category_id FROM pins WHERE address LIKE "'.$_REQUEST['city'].'" AND user_id = '.$_REQUEST['user_id'].' )');    
+                }
             }
             else {
-                $cats = $db->query('SELECT id, name, image, user_id FROM categories WHERE user_id IN (SELECT id FROM users WHERE role LIKE "admin" OR id = '.$_REQUEST['user_id'].' )');
+                if($_REQUEST['current_user_id'] != $_REQUEST['user_id'])                
+                {
+                    $cats = $db->query('SELECT id, name, image, user_id, is_private FROM categories WHERE is_private = 0 AND user_id IN (SELECT id FROM users WHERE role LIKE "admin" OR id = '.$_REQUEST['user_id'].' )');
+                }
+                else
+                {
+                    $cats = $db->query('SELECT id, name, image, user_id, is_private FROM categories WHERE user_id IN (SELECT id FROM users WHERE role LIKE "admin" OR id = '.$_REQUEST['user_id'].' )');    
+                }
             }
 
             $current_id = $_REQUEST['current_user_id'];
