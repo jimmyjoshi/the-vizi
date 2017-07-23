@@ -59,6 +59,22 @@
 
             $user['notification'] = $user['notification'] == 'on' ? 1 : 0;
 
+            
+            $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng='.$user['lat'].','.$user['lon'].'&sensor=false');
+
+            $output = json_decode($geocode);
+            $city   = '';
+            
+            if(!empty($output->results[0]->address_components[2]->long_name))
+            {
+                $city = $output->results[0]->address_components[2]->long_name;
+            }
+            else
+            {
+                $city = $output->results[0]->address_components[3]->long_name;    
+            }
+
+            $user['user_city'] = $city;
             $ret['status'] = 'success';
     		$ret['data']['user'] = $user;
             $ret['data']['is_following'] = $is_following;

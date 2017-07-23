@@ -3,8 +3,10 @@
 
 	$msg = array();
 
-	if (isset($_POST) && count($_POST) > 0) {
-		if ($_POST['name'] != '') {
+	if (isset($_POST) && count($_POST) > 0) 
+    {
+        if ($_POST['name'] != '') 
+        {
             $_POST['image'] = '';
             if (isset($_FILES) && isset($_FILES['image']) && count($_FILES['image']) > 0) {
                 $file = pathinfo($_FILES['image']['name']);
@@ -16,6 +18,24 @@
                 move_uploaded_file($_FILES['image']['tmp_name'], $upload_to);
                 $_POST['image'] = PUBLIC_URL . 'categories/' . $image;
             }
+
+            $userId     = $_POST['user_id'];
+            $userInfo   = $db->query('SELECT * FROM users WHERE id = "'. $userId .'"');
+
+            if($userInfo[0]['role'] == 'admin')
+            {
+                $getAllUsers = $db->query('SELECT * FROM users WHERE role != "admin"');
+                foreach($getAllUsers as $singleUser)
+                {
+                    $categoryInfo = [
+                        'name'      => $_POST['name'],
+                        'user_id'   => $singleUser['id'],
+                        'image'     => $_POST['image']
+                    ];
+                    $insert = $db->query("INSERT INTO categories(name, user_id, image) VALUES(:name, :user_id, :image)", $categoryInfo);
+                }
+            }
+            
 			$insert = $db->query("INSERT INTO categories(name, user_id, image) VALUES(:name, :user_id, :image)", $_POST);
 			if($insert > 0 )
 				$msg['success'] = 'New category has been created!';
