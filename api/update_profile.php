@@ -40,6 +40,19 @@
 		    	$db->query('UPDATE users SET visibility = :visibility WHERE id = :id ', array('id' => $_REQUEST['user_id'], 'visibility' => $_REQUEST['visibility']));
 		    	$user['visibility'] = $_REQUEST['visibility'];
 		    }
+
+		    if(isset($_REQUEST['lat'])) 
+		    {
+		    	$db->query('UPDATE users SET lat = :lat WHERE id = :id ', array('id' => $_REQUEST['user_id'], 'lat' => $_REQUEST['lat']));
+		    	$user['lat'] = $_REQUEST['lat'];
+		    }
+
+		    if(isset($_REQUEST['lon'])) 
+		    {
+		    	$db->query('UPDATE users SET lon = :lon WHERE id = :id ', array('id' => $_REQUEST['user_id'], 'lon' => $_REQUEST['lon']));
+		    	$user['lon'] = $_REQUEST['lon'];
+		    }
+
 		    $ret['status'] = 'success';
 		    $ret['message'] = 'User updated!';
 		    $ret['data'] = $user;
