@@ -74,6 +74,11 @@
                 $city = $output->results[0]->address_components[3]->long_name;    
             }
 
+            if(!isset($user['address']))
+            {
+                $user['address'] = $city;    
+            }
+            
             $user['user_city'] = $city;
             $ret['status'] = 'success';
     		$ret['data']['user'] = $user;
