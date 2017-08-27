@@ -15,7 +15,16 @@
         if (count($all_pins) > 0) {
             $u = $db->query('SELECT user_name, image FROM users WHERE id = ' . $_REQUEST['user_id']);
             foreach ($all_pins as $p) {
-                $pins[] = array('user' => $u[0]['user_name'], 'image' => $u[0]['image'], 'title' => $p['title'], 'lat' => $p['lat'], 'lon' => $p['lon'], 'address' => $p['address']);
+                
+                $pins[] = array(
+                        'user'      => $u[0]['user_name'],
+                        'image'     => $u[0]['image'],
+                        'title'     => $p['title'],
+                        'pinId'     => (int) $p['id'],
+                        'lat'       => $p['lat'],
+                        'lon'       => $p['lon'],
+                        'address'   => $p['address']
+                    );
             }
             $ret['status'] = 'success';
             $ret['message'] = 'Pin found!';
