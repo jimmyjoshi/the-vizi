@@ -9,7 +9,10 @@
     }
 
     if ($ret['message'] == '') {
-        $all_pins = $db->query('SELECT * FROM pins WHERE user_id = '.$_REQUEST['user_id'] );
+        $all_pins = $db->query('SELECT *, categories.name as categoryName FROM pins 
+                                LEFT JOIN categories
+                                ON categories.id = pins.category_id
+                                WHERE pins.user_id = '.$_REQUEST['user_id'] );
 
         $pins = array();
         if (count($all_pins) > 0) {
@@ -17,13 +20,15 @@
             foreach ($all_pins as $p) {
                 
                 $pins[] = array(
-                        'user'      => $u[0]['user_name'],
-                        'image'     => $u[0]['image'],
-                        'title'     => $p['title'],
-                        'pinId'     => (int) $p['id'],
-                        'lat'       => $p['lat'],
-                        'lon'       => $p['lon'],
-                        'address'   => $p['address']
+                        'user'          => $u[0]['user_name'],
+                        'image'         => $u[0]['image'],
+                        'title'         => $p['title'],
+                        'pinId'         => (int) $p['id'],
+                        'categoryId'    => (int) $p['category_id'],
+                        'categoryName'  => $p['categoryName'],
+                        'lat'           => $p['lat'],
+                        'lon'           => $p['lon'],
+                        'address'       => $p['address']
                     );
             }
             $ret['status'] = 'success';
