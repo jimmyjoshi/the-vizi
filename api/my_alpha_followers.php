@@ -10,7 +10,7 @@
 
     $usr = array();
     if ($ret['message'] == '') {
-    	$users = $db->query('SELECT id, user_name, image, lat, lon, address FROM users WHERE id IN (SELECT follower_id FROM follow WHERE following_id = '.$_REQUEST['user_id'].' )');
+    	$users = $db->query('SELECT id, user_name, image, lat, lon, address FROM users WHERE id IN (SELECT follower_id FROM follow WHERE following_id = '.$_REQUEST['user_id'].' )  order by user_name');
 
 	    if (count($users) > 0) 
         {
@@ -39,7 +39,7 @@
                     $sr++;
                 }
 
-	    	$ret['status'] = 'success';
+            $ret['status'] = 'success';
 	        $ret['message'] = 'Followers found!';
 	        $ret['data'] = $response;
 	    }
