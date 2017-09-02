@@ -38,6 +38,7 @@
 	    	$ins = array(
 	    		'user_name' => $_REQUEST['user_name'],
 	    		'email' => $_REQUEST['email'],
+	    		'name' => isset($_REQUEST['name']) ? $_REQUEST['name'] : null,
 	    		'password' => md5($_REQUEST['password']),
 	    		'device_id' => $_REQUEST['device_id'],
 	    		'lat' => $_REQUEST['lat'],
@@ -45,7 +46,7 @@
 	    		'address' => $address
 	    	);
 
-	    	$db->query('INSERT INTO users(user_name, email, password, device_id, lat, lon, address) VALUES (:user_name, :email, :password, :device_id, :lat, :lon, :address) ', $ins);
+	    	$db->query('INSERT INTO users(user_name, name, email, password, device_id, lat, lon, address) VALUES (:user_name, :name, :email, :password, :device_id, :lat, :lon, :address) ', $ins);
 	    	unset($ins['password']);
 	    	$ins['id'] = $db->lastInsertId();
 
