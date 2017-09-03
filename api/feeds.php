@@ -25,7 +25,7 @@
                         $pin_det = $db->query('SELECT title, address FROM pins WHERE id = ' . $n['obj_id']);
                         $statement = $performed_by[0]['user_name'] . " just saved '".$pin_det[0]['title']."' in " . $pin_det[0]['address'];
 
-                        $notifications[] = array('id' => $n['obj_id'], 'text' => $statement, 'image' => $performed_by[0]['image'], 'time' => time_elapsed_string($n['created_at']) );
+                        $notifications[] = array('id' => $n['obj_id'], 'text' => $statement, 'image' => $performed_by[0]['image'] ? $performed_by[0]['image'] : DEFAULT_VIZI_IMAGE, 'time' => time_elapsed_string($n['created_at']) );
                         break;
                     case 'ADMIN':
                         

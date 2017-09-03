@@ -18,12 +18,33 @@
     	$pin = $db->query('SELECT id, user_id, title, address, note,lat, lon FROM pins WHERE id = ' . $_REQUEST['pin_id']);
     	$imgs = $db->query('SELECT id as image_id, image FROM media WHERE pin_id = ' . $_REQUEST['pin_id']);
 
+        if(!isset($imgs[0]))
+        {
+            $imgs[0] = DEFAULT_VIZI_IMAGE;    
+        }
+
+        if(isset($imgs[0]) && strlen($imgs[0]) < 4)
+        {
+            $imgs[0] = DEFAULT_VIZI_IMAGE;
+        }
+
+        if(isset($imgs[1]) && strlen($imgs[1]) < 4)
+        {
+            $imgs[1] = DEFAULT_VIZI_IMAGE;
+        }
+
+        if(isset($imgs[2]) && strlen($imgs[2]) < 4)
+        {
+            $imgs[2] = DEFAULT_VIZI_IMAGE;
+        }
+
+
         $pin[0]['can_delete'] = $pin[0]['user_id'] == $_REQUEST['user_id'] ? 1 : 0;
 
     	$ret['status'] = 'success';
     	$ret['message'] = 'Pin found!';
     	$ret['data']['title'] = $title . ' Detail';
-    	$ret['data']['bgimage'] = $bgimg;
+    	$ret['data']['bgimage'] = $bgimg ? $bgimg : DEFAULT_VIZI_IMAGE;
     	$ret['data']['pin'] = $pin[0];
     	$ret['data']['pin']['images'] = $imgs;
     }

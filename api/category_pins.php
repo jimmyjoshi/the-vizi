@@ -17,7 +17,7 @@
     	if (count($all_pins) > 0) {
     		foreach ($all_pins as $p) {
     			$img = $db->single('SELECT image FROM media WHERE pin_id = ' . $p['id'] . ' LIMIT 1 ');
-    			$img = $img ? $img : '';
+    			$img = $img ? $img : DEFAULT_VIZI_IMAGE;
     			$pins[] = array('id' => $p['id'], 'title' => $p['title'], 'address' => $p['address'], 'image' => $img);
     		}
     	}

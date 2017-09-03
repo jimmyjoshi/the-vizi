@@ -20,7 +20,7 @@
             foreach ($all_pins as $p) {
                 $u = $db->query('SELECT user_name, image FROM users WHERE id = ' . $p['user_id']);
                 $img = $db->single('SELECT image FROM media WHERE pin_id = ' . $p['id'] . ' LIMIT 1');
-                $img = $img != '' ? $img : '';
+                $img = $img != '' ? $img : DEFAULT_VIZI_IMAGE;
                 $pins[] = array('pin_id' => $p['id'], 'user' => $u[0]['user_name'], 'image' => $img, 'title' => $p['title'], 'lat' => $p['lat'], 'lon' => $p['lon'], 'address' => $p['address']);
             }
             $ret['status'] = 'success';
