@@ -16,12 +16,21 @@
 
         $pins = array();
         if (count($all_pins) > 0) {
-            $u = $db->query('SELECT user_name, image FROM users WHERE id = ' . $_REQUEST['user_id']);
+            $u = $db->query('SELECT id,name,user_name, image FROM users WHERE id = ' . $_REQUEST['user_id']);
             foreach ($all_pins as $p) {
                 
+                $userImage = DEFAULT_VIZI_IMAGE;
+
+                if(strlen($u[0]['image']) > 4)
+                {
+                    $userImage = $u[0]['image'];
+                }
+
                 $pins[] = array(
+                        'userId'        => $u[0]['id'],
+                        'name'          => isset($u[0]['name']) ? $u[0]['name'] : '',
                         'user'          => $u[0]['user_name'],
-                        'image'         => $u[0]['image'],
+                        'image'         => $userImage,
                         'title'         => $p['title'],
                         'pinId'         => (int) $p['id'],
                         'categoryId'    => (int) $p['category_id'],
