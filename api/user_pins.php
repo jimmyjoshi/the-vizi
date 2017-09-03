@@ -9,7 +9,7 @@
     }
 
     if ($ret['message'] == '') {
-        $all_pins = $db->query('SELECT *, categories.name as categoryName FROM pins 
+        $all_pins = $db->query('SELECT *, categories.name as categoryName, pins.id as id FROM pins 
                                 LEFT JOIN categories
                                 ON categories.id = pins.category_id
                                 WHERE pins.user_id = '.$_REQUEST['user_id'] );
