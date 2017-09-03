@@ -24,15 +24,14 @@
                 $tmps[] = $i['following_id'];
             }
         }*/
-        if (!isset($_REQUEST['name']) && strlen($_REQUEST['name']) < 1)
+        if (isset($_REQUEST['name']) && strlen($_REQUEST['name']) > 1)
         {
-
+            $users = $db->query('SELECT id, user_name, image, lat, lon, address FROM users WHERE user_name LIKE "%'.$_REQUEST['name'].'%" AND id != ' . $_REQUEST['user_id']);
+        }
+        else {
             $users = $db->query('SELECT  (select count(id) from pins where user_id = users.id) as pincount, users.id, users.user_name, users.image, users.lat, users.lon, users.address FROM users
                     LEFT JOIN pins on pins.user_id = users.id
                  WHERE users.id != ' . $_REQUEST['user_id'] . ' group by users.id ORDER BY pincount desc  LIMIT 6');
-        }
-        else {
-            $users = $db->query('SELECT id, user_name, image, lat, lon, address FROM users WHERE user_name LIKE "%'.$_REQUEST['name'].'%" AND id != ' . $_REQUEST['user_id']);
         }
         $usr = array();
         if (count($users) > 0) {
