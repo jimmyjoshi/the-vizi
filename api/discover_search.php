@@ -24,7 +24,7 @@
                 $tmps[] = $i['following_id'];
             }
         }*/
-        if (!isset($_REQUEST['name']))
+        if (!isset($_REQUEST['name']) && strlen($_REQUEST['name']) < 1)
         {
 
             $users = $db->query('SELECT  (select count(id) from pins where user_id = users.id) as pincount, users.id, users.user_name, users.image, users.lat, users.lon, users.address FROM users
