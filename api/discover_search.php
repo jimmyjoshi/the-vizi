@@ -36,7 +36,9 @@
         }
         $usr = array();
         if (count($users) > 0) {
-            foreach ($users as $u) {
+            foreach ($users as $u) 
+            {
+                $u['image'] = isset($u['image']) ? $u['image'] : DEFAULT_VIZI_IMAGE;
                 $u['distance'] = getTimeDiff($u['lat'], $u['lon'], $_REQUEST['lat'], $_REQUEST['lon']);
                 $if_follow = $db->single('SELECT id FROM follow WHERE follower_id = ' . $_REQUEST['user_id'] . ' AND following_id = ' . $u['id']);
                 $u['following'] = $if_follow != '' ? 1 : 0;
