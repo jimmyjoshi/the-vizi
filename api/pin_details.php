@@ -18,6 +18,19 @@
     	$pin = $db->query('SELECT id, user_id, title, address, note,lat, lon FROM pins WHERE id = ' . $_REQUEST['pin_id']);
     	$imgs = $db->query('SELECT id as image_id, image FROM media WHERE pin_id = ' . $_REQUEST['pin_id']);
 
+        $pinImages = [];
+        foreach($imgs as $imgx)
+        {
+            if(!isset($imgx['image']) || strlen($imgx['image']) < 4)
+            {
+                $imgx['image'] = DEFAULT_VIZI_IMAGE ; 
+            }
+
+            $pinImages[] = $imgx;
+        }
+
+
+/*
         if(!isset($imgs[0]))
         {
             $imgs[0] = DEFAULT_VIZI_IMAGE;    
@@ -36,7 +49,7 @@
         if(isset($imgs[2]) && strlen($imgs[2]) < 4)
         {
             $imgs[2] = DEFAULT_VIZI_IMAGE;
-        }
+        }*/
 
 
         $pin[0]['can_delete'] = $pin[0]['user_id'] == $_REQUEST['user_id'] ? 1 : 0;
@@ -46,7 +59,7 @@
     	$ret['data']['title'] = $title . ' Detail';
     	$ret['data']['bgimage'] = $bgimg ? $bgimg : DEFAULT_VIZI_IMAGE;
     	$ret['data']['pin'] = $pin[0];
-    	$ret['data']['pin']['images'] = $imgs;
+    	$ret['data']['pin']['images'] = $pinImages;
     }
 
     echo json_encode($ret);
