@@ -10,7 +10,7 @@
 
     $usr = array();
     if ($ret['message'] == '') {
-    	$users = $db->query('SELECT id, user_name, image, lat, lon, address FROM users WHERE id IN (SELECT following_id FROM follow WHERE follower_id = '.$_REQUEST['user_id'].' ) order by user_name');
+    	$users = $db->query('SELECT id, user_name, image, lat, lon, address FROM users WHERE id != '. $_REQUEST['user_id'] .' AND id IN (SELECT following_id FROM follow WHERE follower_id = '.$_REQUEST['user_id'].' ) order by user_name');
     	if (count($users) > 0) {
     		if (count($users) > 0) {
 	            foreach ($users as $u) 

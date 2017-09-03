@@ -54,9 +54,13 @@
 
             //To all those users who are following user_id
             $user_ids = $db->query('SELECT device_id FROM users WHERE id IN (SELECT follower_id FROM follow WHERE following_id = '.$_REQUEST['user_id'].' AND follower_id != '.$_REQUEST['follow_id'].' ) AND notification LIKE "on" ');
-            if (count($user_ids) > 0) {
-                require 'push.php';
-                foreach ($user_ids as $tkn) {
+
+            if (count($user_ids) > 0) 
+            {
+                require_once 'push.php';
+                
+                foreach ($user_ids as $tkn) 
+                {
                     $following_to = $db->single('SELECT user_name FROM users WHERE id = ' . $_REQUEST['follow_id']);
                     $followed_by = $db->single('SELECT user_name FROM users WHERE id = ' . $_REQUEST['user_id']);
                     $msg_payload = array (
