@@ -19,11 +19,11 @@
             else {
                 if ($_POST['password'] != '') {
                     $_POST['password'] = md5($_POST['password']);
-                    $db->query("UPDATE users SET user_name = :name, email = :email, password = :password, status = :status, role = :role WHERE id = :id ", $_POST);
+                    $db->query("UPDATE users SET name = :given_name, user_name = :name, email = :email, password = :password, status = :status, role = :role WHERE id = :id ", $_POST);
                 }
                 else {
                     unset($_POST['password']);
-                    $db->query("UPDATE users SET user_name = :name, email = :email, status = :status, role = :role WHERE id = :id ", $_POST);
+                    $db->query("UPDATE users SET name = :given_name, user_name = :name, email = :email, status = :status, role = :role WHERE id = :id ", $_POST);
                 }
                 header('Location: ' . HOST . 'admin/users/index.php?updated=true');
             }
