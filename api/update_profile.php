@@ -36,6 +36,13 @@
 		    	$user['bio'] = $_REQUEST['bio'];
 		    }
 
+
+		    if (isset($_REQUEST['is_private'])) {
+		    	$db->query('UPDATE users SET is_private = :is_private WHERE id = :id ', array('id' => $_REQUEST['user_id'], 'is_private' => $_REQUEST['is_private']));
+		    	$user['is_private'] = $_REQUEST['is_private'];
+		    }
+
+
 		    if (isset($_REQUEST['visibility'])) {
 		    	$db->query('UPDATE users SET visibility = :visibility WHERE id = :id ', array('id' => $_REQUEST['user_id'], 'visibility' => $_REQUEST['visibility']));
 		    	$user['visibility'] = $_REQUEST['visibility'];
