@@ -8,10 +8,10 @@
     {
         $ret['message'] = 'User id can not be blank!';
     }
-    
+
     if ($ret['message'] == '') 
     {
-        $users = $db->query('SELECT  (select count(id) from pins where user_id = users.id) as pincount, users.id, users.user_name, users.image, users.lat, users.lon, users.address FROM users
+        $users = $db->query('SELECT  (select count(id) from pins where user_id = users.id) as pincount,  users.name, users.id, users.user_name, users.image, users.lat, users.lon, users.address FROM users
                     LEFT JOIN pins on pins.user_id = users.id
                  WHERE users.id != ' . $_REQUEST['user_id'] . ' group by users.id ORDER BY pincount desc');
         
@@ -29,7 +29,7 @@
         }
 
         $ret['status'] = 'success';
-        $ret['message'] = 'Followers found!';
+        $ret['message'] = 'All Users Found!';
         $ret['data'] = $usr;
     }
 
