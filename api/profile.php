@@ -13,7 +13,7 @@
     	if (count($user) > 0) {
     		$user = $user[0];
     		unset($user['reset'], $user['created_at'], $user['status'], $user['role'], $user['password'], $user['visibility'], $user['device_id']);
-    		
+
             $followers = $db->single('SELECT count(id) AS followers FROM follow WHERE following_id = ' . $_REQUEST['user_id']);
             $followings = $db->single('SELECT count(id) AS followings FROM follow WHERE follower_id = ' . $_REQUEST['user_id']);
             $pins = $db->single('SELECT count(id) AS pins FROM pins WHERE user_id = ' . $_REQUEST['user_id']);
