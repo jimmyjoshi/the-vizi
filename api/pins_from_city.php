@@ -37,9 +37,12 @@
 
                     $disatance = (distance($p['lat'], $p['lon'], $latitude, $longitude)) ? distance( $p['lat'], $p['lon'], $latitude, $longitude) : -1;
 
-                    $img = $db->single('SELECT image FROM media WHERE pin_id = ' . $p['id'] . ' LIMIT 1');
-                    $img = $img != '' ? $img : DEFAULT_VIZI_IMAGE;
-                    $pins[] = array('pin_id' => $p['id'], 'user' => $u[0]['user_name'], 'image' => $img, 'title' => $p['title'], 'lat' => $p['lat'], 'lon' => $p['lon'], 'address' => $p['address'], 'distance' => $disatance);
+                    if($disatance < 100)
+                    {
+                        $img = $db->single('SELECT image FROM media WHERE pin_id = ' . $p['id'] . ' LIMIT 1');
+                        $img = $img != '' ? $img : DEFAULT_VIZI_IMAGE;
+                        $pins[] = array('pin_id' => $p['id'], 'user' => $u[0]['user_name'], 'image' => $img, 'title' => $p['title'], 'lat' => $p['lat'], 'lon' => $p['lon'], 'address' => $p['address'], 'distance' => $disatance);
+                    }
                 }
 
                 $result = array();
