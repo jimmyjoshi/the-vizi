@@ -1,11 +1,11 @@
 <?php
-	require '../config.php';
-	global $db;
+    require '../config.php';
+    global $db;
 
     $ret = array('status' => 'fail', 'message' => '', 'data' => array());
 
     if (!isset($_REQUEST['category_id']) || $_REQUEST['category_id'] == '') {
-    	$ret['message'] = 'Category id can not be blank!';
+        $ret['message'] = 'Category id can not be blank!';
     }
 
     if (!isset($_REQUEST['user_id']) || $_REQUEST['user_id'] == '') {
@@ -17,15 +17,18 @@
         if(isset($_REQUEST['city_name']) || $_REQUEST['city_name'] != '') 
         {
             $city = $_REQUEST['city_name'];
- 
+
+
+            $city = str_replace(" ", '+', $city);
             #Find latitude and longitude
              
             $url = "http://maps.googleapis.com/maps/api/geocode/json?address=$city";
             $json_data = file_get_contents($url);
             $result = json_decode($json_data, TRUE);
+
             $latitude = $result['results'][0]['geometry']['location']['lat'];
             $longitude = $result['results'][0]['geometry']['location']['lng'];
-
+            
            $all_pins = $db->query('SELECT * FROM pins WHERE category_id = '.$_REQUEST['category_id'] . ' AND user_id = ' . $_REQUEST['user_id']);
 
             $pins = array();
@@ -35,9 +38,9 @@
                 {
                     $u = $db->query('SELECT user_name, image FROM users WHERE id = ' . $p['user_id']);
 
-                    $disatance = (distance($p['lat'], $p['lon'], $latitude, $longitude)) ? distance( $p['lat'], $p['lon'], $latitude, $longitude) : -1;
+                    $disatance = (int) (distanceInteger($p['lat'], $p['lon'], $latitude, $longitude)) ? distanceInteger( $p['lat'], $p['lon'], $latitude, $longitude) : -1;
 
-                    if($disatance < 100)
+                    if((int) $disatance < 100)
                     {
                         $img = $db->single('SELECT image FROM media WHERE pin_id = ' . $p['id'] . ' LIMIT 1');
                         $img = $img != '' ? $img : DEFAULT_VIZI_IMAGE;
