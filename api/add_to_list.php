@@ -45,7 +45,7 @@
                     
                 }
                 $ret['status'] = 'success';
-                $ret['message'] = 'Pins are added successfully';
+                $ret['message'] = 'Pin was Successfully Added';
             }
         }
         else {
