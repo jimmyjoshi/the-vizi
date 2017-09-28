@@ -41,7 +41,7 @@
 
                 foreach($pinImages as $pinImage)
                 {
-                    $db->query('INSERT INTO media(pin_id, image, created_at) VALUES("'.$pin['id'].'", "'.$pinImage['image'].'", "'.date('Y-m-d H:i:s').'")');
+                    $db->query('INSERT INTO media(pin_id, image, created_at) VALUES("'. $new_pin_id.'", "'.$pinImage['image'].'", "'.date('Y-m-d H:i:s').'")');
                     
                 }
                 $ret['status'] = 'success';

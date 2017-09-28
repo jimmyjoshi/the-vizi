@@ -8,10 +8,13 @@
     	$ret['message'] = 'User id can not be blank!';
     }
     $notifications = array();
-    if ($ret['message'] == '') {
+    if ($ret['message'] == '') 
+    {
         $nots = $db->query('SELECT * FROM notifications WHERE user_id IN (SELECT following_id FROM follow WHERE follower_id = ' . $_REQUEST['user_id'].') ORDER BY created_at DESC');
-        if (count($nots) > 0) {
-            foreach ($nots as $n) {
+        if (count($nots) > 0) 
+        {
+            foreach ($nots as $n) 
+            {
                 $performed_by = $db->query('SELECT user_name, image, address FROM users WHERE id = ' . $n['user_id']);
                 switch ($n['type']) {
                     case 'FOLLOW':
@@ -28,8 +31,9 @@
         }
 
 
-        $nots = $db->query('SELECT * FROM notifications WHERE type LIKE "FOLLOW" ORDER BY created_at DESC');
-        if (count($nots) > 0) {
+        $nots = $db->query('SELECT * FROM notifications WHERE type LIKE "FOLLOW" and user_id = "'.$_REQUEST['user_id'].'" ORDER BY created_at DESC');
+        if (count($nots) > 0) 
+        {
             foreach ($nots as $n) {
                 $performed_by = $db->query('SELECT user_name, image, address FROM users WHERE id = ' . $n['user_id']);
                 switch ($n['type']) {
