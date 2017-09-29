@@ -20,7 +20,16 @@
                     case 'FOLLOW':
                         $performed_on = $db->query('SELECT id, user_name, image, address FROM users WHERE id IN ( SELECT following_id FROM follow WHERE id = ' . $n['obj_id'] . ')');
                         $private = $db->single('SELECT requested FROM follow WHERE id = ' . $n['obj_id']);
-                        $statement = (int)$private == 0 ? $performed_by[0]['user_name'] . ' is now following ' : $performed_by[0]['user_name'] . ' sent follow request to ';
+
+                        if($performed_on[0]['id'] == $_REQUEST['user_id'])
+                        {
+                             $statement = (int)$private == 0 ? 'You are now following ' : $performed_by[0]['user_name'] . ' sent follow request to ';
+                        }
+                        else
+                        {
+
+                            $statement = (int)$private == 0 ? $performed_by[0]['user_name'] . ' is now following ' : $performed_by[0]['user_name'] . ' sent follow request to ';
+                        }
                         $requested = (int)$private == 0 ? 0 : 1;
                         $statement .= $performed_on[0]['id'] == $_REQUEST['user_id'] ? 'you.' : $performed_on[0]['user_name'];
 
