@@ -31,7 +31,7 @@
                         'title'         => $p['title'],
                         'pinId'         => (int) $p['id'],
                         'categoryId'    => (int) $p['category_id'],
-                        'categoryName'  => $p['categoryName'],
+                        'categoryName'  => $p['categoryName'] ? $p['categoryName'] : '',
                         'lat'           => $p['lat'],
                         'lon'           => $p['lon'],
                         'address'       => $p['address']
