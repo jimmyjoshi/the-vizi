@@ -48,7 +48,7 @@
         $ret['status'] = 'success';
         $ret['message'] = 'Admin Pins found!';
 
-        $response = [
+        $response[] = [
             'id' => '1',
             'title' => 'Trending Places',
             'image' => 'https://static.strollup.in/image/uploads/2015/03/Bada_Gumbad_Lodi_Gardens.jpg', 
