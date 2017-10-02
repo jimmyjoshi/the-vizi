@@ -71,8 +71,21 @@ class PushNotifications {
 	}
 	
         // Sends Push notification for iOS users
-	public function iOS($data, $devicetoken) {
-
+	public function iOS($data, $devicetoken, $live = true) 
+	{
+		if($live == true)
+		{
+			$fp = stream_socket_client(
+			'ssl://gateway.push.apple.com', $err,
+			$errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
+		}
+		else
+		{
+			$fp = stream_socket_client(
+			'ssl://gateway.sandbox.push.apple.com:2195', $err,
+			$errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
+		}	
+		
 		$deviceToken = $devicetoken;
 
 		$ctx = stream_context_create();

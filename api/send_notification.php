@@ -18,7 +18,7 @@ if(isset($_POST['token']))
                     'badgeCount'    => 0
                 );
                 
-                PushNotifications::iOS($msg_payload, $token);
+                PushNotifications::iOS($msg_payload, $token, false);
             }
 
 }
