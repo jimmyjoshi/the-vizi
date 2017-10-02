@@ -12,6 +12,8 @@
 
     if ($ret['message'] == '') 
     {
+        $resetNotificationCount = $db->query('UPDATE notifications SET is_read = 1 WHERE user_id = ' . $_REQUEST['user_id']);
+        
         $notifications = $db->query('SELECT * FROM notifications WHERE type = "FOLLOW" and user_id = ' . $_REQUEST['user_id'].' ORDER BY created_at DESC');
 
         $userInfo = $db->query('SELECT user_name, image, address FROM users WHERE id = ' . $_REQUEST['user_id']);   
