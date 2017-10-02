@@ -80,9 +80,11 @@ class PushNotifications {
 		stream_context_set_option($ctx, 'ssl', 'local_cert', 'pushcert.pem');
 		stream_context_set_option($ctx, 'ssl', 'passphrase', self::$passphrase);
 
+		//sandbox - gateway.sandbox.push.apple.com 2195
+		//LIVE - gateway.push.apple.com
 		// Open a connection to the APNS server
 		$fp = stream_socket_client(
-			'ssl://gateway.push.apple.com:2195', $err,
+			'ssl://gateway.sandbox.push.apple.com:2195', $err,
 			$errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
 
 		if (!$fp)
@@ -91,8 +93,9 @@ class PushNotifications {
 		// Create the payload body
 		$body['aps'] = array(
 			'alert' => array(
-			    'title' => $data['mtitle'],
-                'body' => $data['mdesc'],
+			    'title' 		=> $data['mtitle'],
+                'body' 			=> $data['mdesc'],
+                'badgeCount' 	=> $data['badgeCount']
 			 ),
 			'sound' => 'default'
 		);

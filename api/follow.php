@@ -47,7 +47,8 @@
                 $name = $db->single('SELECT user_name FROM users WHERE id = ' . $_REQUEST['user_id']);
                 $msg_payload = array (
                     'mtitle' => 'Vizi',
-                    'mdesc' => $private ? $name . ' has sent you follow request' : $name . ' is now following you'
+                    'mdesc' => $private ? $name . ' has sent you follow request' : $name . ' is now following you',
+                    'badgeCount' => 0
                 );
                 PushNotifications::iOS($msg_payload, $token);
             }
@@ -65,7 +66,8 @@
                     $followed_by = $db->single('SELECT user_name FROM users WHERE id = ' . $_REQUEST['user_id']);
                     $msg_payload = array (
                         'mtitle' => 'Vizi',
-                        'mdesc' => $followed_by . ' is now following to ' . $following_to
+                        'mdesc' => $followed_by . ' is now following to ' . $following_to,
+                        'badgeCount' => 0
                     );
                     PushNotifications::iOS($msg_payload, $tkn);
                 }
