@@ -127,6 +127,11 @@
                         <li class="<?php echo $dash; ?>">
                             <a href="<?php echo HOST ?>admin/dashboard.php"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
                         </li>
+                        <li class="<?php echo $dash; ?>">
+                            <a href="<?php echo HOST ?>admin/pins/new.php">
+                                <i class="fa fa-th-large"></i> <span class="nav-label">Create Admin Pins</span>
+                            </a>
+                        </li>
                         <li class="<?php echo $cats; ?>">
                             <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Categories</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
