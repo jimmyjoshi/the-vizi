@@ -106,7 +106,7 @@
                             <div class="col-sm-4 col-sm-offset-2">
                                 <a href="<?php echo HOST ?>admin/categories/" class="btn btn-white">Cancel</a>
                                 <input type="hidden" id="lat" name="lat" value="36.1699">
-                                <input type="hidden" id="long" name="long" value="115.1398">
+                                <input type="hidden" id="long" name="long" value="-115.1398">
                                 <input type="hidden" id="user_id" name="user_id" value="1">
                                 <button class="btn btn-primary" type="submit">Create</button>
                             </div>
@@ -122,7 +122,7 @@
 
           function initMap() 
           {
-            var uluru = {lat: 36.1699, lng: 115.1398};
+            var uluru = {lat: 36.1699, lng: -115.1398};
             var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 10,
               center: uluru
