@@ -14,13 +14,22 @@
     {
         $resetNotificationCount = $db->query('UPDATE notifications SET is_read = 1 WHERE user_id = ' . $_REQUEST['user_id']);
         
-        $notifications = $db->query('SELECT * FROM notifications WHERE type = "FOLLOW" and user_id = ' . $_REQUEST['user_id'].' ORDER BY created_at DESC');
+        $usernotifications = $db->query('SELECT * FROM notifications WHERE type = "FOLLOW" and user_id = ' . $_REQUEST['user_id'].' ORDER BY created_at DESC');
+
+        $otherNotifications = $db->query('SELECT notifications.* FROM follow LEFT JOIN notifications on notifications.obj_id = follow.id WHERE notifications.type = "follow" AND ( follower_id = ' . $_REQUEST['user_id'].' OR following_id = ' . $_REQUEST['user_id'].') order by id desc');
+        
+        $notifications 	= array_merge($usernotifications, $otherNotifications);
+        $processed 		= [];
 
         $userInfo = $db->query('SELECT user_name, image, address FROM users WHERE id = ' . $_REQUEST['user_id']);   
         if($notifications)
         {
             foreach($notifications as $notification)
             {
+            	if(in_array($notification['id'], $processed))
+            		continue;
+
+            	$processed[] = $notification['id'];
 
                 if($notification['type'] == 'FOLLOW' && $userInfo)   
                 {
