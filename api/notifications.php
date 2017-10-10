@@ -95,7 +95,7 @@ foreach($allnotifications as $k=>$v) {
 
                         $data[] = array(
                             'id'        => (int) $notification['obj_id'],
-                            'toUserId'  => (int) $otherUserId,
+                            'toUserId'  => $otherUserId,
                             'text'      => $statement,
                             'image'     => $otherUser['image'] ? $otherUser['image'] : DEFAULT_VIZI_IMAGE,
                             'time'      => isset($notification['created_at']) ? time_elapsed_string($notification['created_at']) : '',
