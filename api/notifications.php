@@ -18,8 +18,19 @@
 
         $otherNotifications = $db->query('SELECT notifications.* FROM follow LEFT JOIN notifications on notifications.obj_id = follow.id WHERE notifications.type = "follow" AND ( follower_id = ' . $_REQUEST['user_id'].' OR following_id = ' . $_REQUEST['user_id'].') order by id desc');
         
-        $notifications 	= array_merge($usernotifications, $otherNotifications);
-        $processed 		= [];
+        $allnotifications 	= array_merge($usernotifications, $otherNotifications);
+
+$sort = array();
+foreach($allnotifications as $k=>$v) {
+    $sort['id'][$k] = $v['id'];
+    //$sort['text'][$k] = $v['text'];
+}
+        $sort = implode(',', $sort['id']);
+ 
+ 		
+ 		$notifications =  $db->query('SELECT * FROM notifications where id IN ('.$sort.') order by id desc');
+
+        $processed = [];
 
         $userInfo = $db->query('SELECT user_name, image, address FROM users WHERE id = ' . $_REQUEST['user_id']);   
         if($notifications)
@@ -83,8 +94,8 @@
                         }
 
                         $data[] = array(
-                            'id'        => $notification['obj_id'],
-                            'toUserId'  => $otherUserId,
+                            'id'        => (int) $notification['obj_id'],
+                            'toUserId'  => (int) $otherUserId,
                             'text'      => $statement,
                             'image'     => $otherUser['image'] ? $otherUser['image'] : DEFAULT_VIZI_IMAGE,
                             'time'      => isset($notification['created_at']) ? time_elapsed_string($notification['created_at']) : '',
