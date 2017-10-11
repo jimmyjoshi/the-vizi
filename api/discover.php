@@ -21,7 +21,9 @@
                 {
                     $u = $db->query('SELECT id,user_name, image, lat, lon FROM users WHERE id = ' . $p['user_id']);
                    
-                    $disatance = (distance($u[0]['lat'], $u[0]['lon'], $p['lat'], $p['lon'])) ? distance($u[0]['lat'], $u[0]['lon'], $p['lat'], $p['lon']) : -1;
+                    $disatance = (distance($_REQUEST['lat'], $_REQUEST['lon'], $p['lat'], $p['lon'])) ? distance($_REQUEST['lat'], $_REQUEST['lon'], $p['lat'], $p['lon']) : -1;
+
+                    /*$disatance = (distance($u[0]['lat'], $u[0]['lon'], $p['lat'], $p['lon'])) ? distance($u[0]['lat'], $u[0]['lon'], $p['lat'], $p['lon']) : -1;*/
 
                     $pins[] = array('id' => $p['id'], 'userId' => $u[0]['id'], 'user' => $u[0]['user_name'], 'image' => $u[0]['image'], 'title' => $p['title'], 'lat' => $p['lat'], 'lon' => $p['lon'], 'address' => $p['address'], 'distance' => $disatance);
                 }
