@@ -20,7 +20,8 @@
 
     if ($_REQUEST['follow'] == 0) {
         $db->query('DELETE FROM notifications WHERE type LIKE "FOLLOW" AND obj_id IN ( SELECT id FROM follow WHERE follower_id = '.$_REQUEST['user_id'].' AND following_id = '.$_REQUEST['follow_id'].' )');
-        $db->query('DELETE FROM follow WHERE follower_id = :follower_id AND following_id = :follow_id ', $param);
+
+        //$db->query('DELETE FROM follow WHERE follower_id = :follower_id AND following_id = :follow_id ', $param);
         $ret['message'] = 'User unfollowed!';
         $ret['status'] = 'success';
         //Do we have to remove this from notifications list as well ???
