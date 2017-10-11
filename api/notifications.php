@@ -74,7 +74,7 @@ foreach($allnotifications as $k=>$v) {
                         {
                             if($followInfo['following_id'] == $_REQUEST['user_id'])
                             {
-                                $statement = $otherUserName . 'is now following You';
+                                $statement = $otherUserName . ' is now following You';
                             }
                             else
                             {
