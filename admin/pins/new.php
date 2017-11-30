@@ -44,7 +44,9 @@
 				<li><a href="<?php echo HOST ?>admin/dashboard.php">Dashboard</a></li>
 				<li><a href="<?php echo HOST ?>admin/pins/">Pins</a></li>
 				<li class="active"><strong>New</strong></li>
-			</ol>
+                <li class="text-right"><a href="<?php echo HOST ?>admin/pins">View All</a></li>
+            </ol>
+
 		</div>
 		<div class="col-lg-2"> </div>
 	</div>

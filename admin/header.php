@@ -140,6 +140,16 @@
                                 <li class="<?php echo $new_cat; ?>"><a href="<?php echo HOST ?>admin/categories/new.php">Add New</a></li>
                             </ul>
                         </li>
+
+                         <li class="">
+                            <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Admin Pins</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li class=""><a href="<?php echo HOST ?>admin/pins">All Pins</a></li>
+                                <li class=""><a href="<?php echo HOST ?>admin/pins/new.php">Create Pin</a></li>
+                            </ul>
+                        </li>
+
+
                         <li class="<?php echo $usrs; ?>">
                             <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Users</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

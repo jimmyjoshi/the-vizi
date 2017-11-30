@@ -1,14 +1,14 @@
 <?php
 	require '../../config.php';
 	require DOC_ROOT . 'admin/header.php';
-	$users = $db->query('SELECT * FROM users WHERE role LIKE "user" ');
+	$pins = $db->query('SELECT *, pins.id as id FROM pins LEFT JOIN categories ON categories.id = pins.category_id WHERE pins.user_id = 1 ');
 ?>
 	<div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-10">
-			<h2>All Users</h2>
+			<h2>All Pins</h2>
 			<ol class="breadcrumb">
 				<li><a href="<?php echo HOST ?>admin/dashboard.php">Dashboard</a></li>
-				<li class="active"><strong>Users</strong></li>
+				<li class="active"><strong>Pins</strong></li>
 			</ol>
 		</div>
 		<div class="col-lg-2"> </div>
@@ -22,13 +22,13 @@
                 			if ($_GET['deleted'] == "true") {
 	                			echo '<div class="alert alert-success alert-dismissable">
 			                                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-			                                User deleted successfully!
+			                                Pin deleted successfully!
 			                            </div>';
 			                }
 			                else {
 			                	echo '<div class="alert alert-danger alert-dismissable">
 			                                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-			                                Something went wrong in user deletion!
+			                                Something went wrong in Pin deletion!
 			                            </div>';
 			                }
                 		}
@@ -37,41 +37,45 @@
                 			if ($_GET['updated'] == "true") {
 	                			echo '<div class="alert alert-success alert-dismissable">
 			                                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-			                                User updated successfully!
+			                                Pin updated successfully!
 			                            </div>';
 			                }
 			                else {
 			                	echo '<div class="alert alert-danger alert-dismissable">
 			                                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-			                                Something went wrong in user updation!
+			                                Something went wrong in Pin updation!
 			                            </div>';
 			                }
                 		}
                 	?>
                     <div class="ibox-title">
-                        <h5>List of all Users</h5>
+                        <h5>List of all Pins</h5>
                     </div>
                     <div class="ibox-content">
 	                    <table class="table table-striped table-bordered table-hover dataTables-example" >
 		                    <thead>
 			                    <tr>
 			                        <th>Id</th>
-			                        <th>User Name</th>
-			                        <th>Email</th>
-			                        <th>Status</th>
+			                        <th>Title</th>
+			                        <th>Category</th>
+			                        <th>Address</th>
+			                        <th>Lat</th>
+			                        <th>Long</th>
 			                        <th>Actions</th>
 			                    </tr>
 		                    </thead>
 		                    <tbody>
 		                    	<?php
-		                    	if (count($users) > 0) {
-		                    		foreach ($users as $user) {
+		                    	if (count($pins) > 0) {
+		                    		foreach ($pins as $pin) {
 		                    			echo '<tr>';
-		                    				echo '<td>'.$user['id'].'</td>';
-		                    				echo '<td>'.$user['user_name'].'</td>';
-		                    				echo '<td>'.$user['email'].'</td>';
-		                    				echo '<td>'.($user['status'] == 1 ? 'Active' : 'Inactive' ).'</td>';
-		                    				echo '<td><a href="'.HOST.'admin/users/edit.php?id='.$user['id'].'"><i class="fa fa-edit"></i></a> &nbsp; <a onclick="return sure();" href="'.HOST.'admin/users/delete.php?id='.$user['id'].'"><i class="fa fa-trash-o"></i></a></td>';
+		                    				echo '<td>'.$pin['id'].'</td>';
+		                    				echo '<td>'.$pin['title'].'</td>';
+		                    				echo '<td>'.$pin['name'].'</td>';
+		                    				echo '<td>'.$pin['address'].'</td>';
+		                    				echo '<td>'.$pin['lat'].'</td>';
+		                    				echo '<td>'.$pin['lon'].'</td>';
+		                    				echo '<td><a onclick="return sure();" href="'.HOST.'admin/pins/delete.php?id='.$pin['id'].'"><i class="fa fa-trash-o"></i></a></td>';
 		                    			echo '</tr>';
 		                    		}
 		                    	}
@@ -80,16 +84,7 @@
 		                    	}
 		                    	?>
 			                </tbody>
-		                    <tfoot>
-		                    	<tr>
-			                        <th>Id</th>
-			                        <th>User Name</th>
-			                        <th>Email</th>
-			                        <th>Status</th>
-			                        <th>Actions</th>
-			                    </tr>
-	                    	</tfoot>
-	                    </table>
+		                </table>
                     </div>
                 </div>
             </div>
@@ -97,7 +92,7 @@
 	</div>
 	<script>
 		function sure() {
-			return confirm('Are you sure you want to delete this user? There is no undo!');
+			return confirm('Are you sure you want to delete this Pin? There is no undo!');
 		}
 		$('.dataTables-example').dataTable({
             responsive: true
