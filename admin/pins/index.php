@@ -75,7 +75,9 @@
 		                    				echo '<td>'.$pin['address'].'</td>';
 		                    				echo '<td>'.$pin['lat'].'</td>';
 		                    				echo '<td>'.$pin['lon'].'</td>';
-		                    				echo '<td><a onclick="return sure();" href="'.HOST.'admin/pins/delete.php?id='.$pin['id'].'"><i class="fa fa-trash-o"></i></a></td>';
+		                    				echo '<td><a href="'.HOST.'admin/pins/edit.php?id='.$pin['id'].'"><i class="fa fa-edit"></i></a> 
+		                    				&nbsp;
+		                    						<a onclick="return sure();" href="'.HOST.'admin/pins/delete.php?id='.$pin['id'].'"><i class="fa fa-trash-o"></i></a></td>';
 		                    			echo '</tr>';
 		                    		}
 		                    	}
