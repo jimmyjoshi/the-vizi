@@ -18,7 +18,27 @@
                 "'. $_POST['note'] .'"
                 )';
         $pins = $db->query($sql);
-        
+
+        $pin_id = $db->lastInsertId();
+
+        if (isset($_FILES) && isset($_FILES['image']) && isset($_FILES['image']['name']) && count($_FILES['image']['name']) > 0) 
+        {
+            foreach ($_FILES['image']['name'] as $k => $file_name) 
+            {
+                if ($_FILES['image']['error'][$k] == 0) 
+                {
+                    $file = pathinfo($file_name);
+                    $name = $file['filename'];
+                    $ext = $file['extension'];
+                    $rand = time();
+                    $image = $name . '-' . $rand . '.' . $ext;
+                    $upload_to = PUBLIC_PATH . 'pins/' . $image;
+                    $done = move_uploaded_file($_FILES['image']['tmp_name'][$k], $upload_to);
+                    
+                    $db->query('INSERT INTO media (pin_id, image) VALUES(:pin_id, :image)', array('pin_id' => $pin_id, 'image' => PUBLIC_URL . 'pins/' . $image) );
+                }
+            }
+        }
         ?>
         <script>
             alert('New Pin Created Successfully');
@@ -62,7 +82,7 @@
                 	
                     <div id="map"></div>
                     <div class="clearfix"><br></div>
-                    <form class="form-horizontal" action="" method="post">
+                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Select Category</label>
@@ -93,7 +113,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Address</label>
                             <div class="col-sm-10">
-                                <input type="text" name="address"  class="form-control"  required="required">
+                                <input type="text" name="address" id="address" value="200 N Casino Center Blvd, Las Vegas, NV 89101, USA" class="form-control"  required="required">
                             </div>
                         </div>
 
@@ -103,6 +123,14 @@
                                 <textarea name="note" class="form-control" required="required"></textarea>
                             </div>
                         </div>
+
+                         <div class="form-group">
+                            <label class="col-sm-2 control-label">Select Pin IMage</label>
+                            <div class="col-sm-10">
+                                <input type="file" name="image[]" multiple="true">
+                            </div>
+                        </div>
+
 
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
@@ -121,7 +149,9 @@
     <!-- iCheck -->
     <link href="<?php echo PUBLIC_URL; ?>css/plugins/iCheck/custom.css" rel="stylesheet">
     <script>
-
+        var geocoder;
+        var map;
+        var marker;
           function initMap() 
           {
             var uluru = {lat: 36.1699, lng: -115.1398};
@@ -137,12 +167,30 @@
 
                google.maps.event.addListener(marker, 'dragend', function (event) 
                {
-                
+                    geocodePosition(marker.getPosition());
                 document.getElementById("lat").value = event.latLng.lat();
                 document.getElementById("long").value = event.latLng.lng();
                 //infoWindow.open(map, marker);
             });
           }
+
+
+          function geocodePosition(pos) 
+          {
+             geocoder = new google.maps.Geocoder();
+              geocoder.geocode({
+                latLng: pos
+              }, function(responses) {
+                if (responses && responses.length > 0) 
+                {
+                    jQuery("#address").val(responses[0].formatted_address);
+                } else 
+                {
+                    jQuery("#address").val('');
+                    
+                }
+            });
+        }
      </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDquec3hXP96UH0iNVWoRNK2QltdJsi1kQ&callback=initMap">
