@@ -49,6 +49,7 @@
                     'categoryId'        => $category['id'],
                     'id'                => $category['id'],
                     'name'              => $category['name'],
+                    'image'             => $category['image'],
                     'categoryName'      => $category['name'],
                     'categoryImage'     => $category['image']
                 ];
