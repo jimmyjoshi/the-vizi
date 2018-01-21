@@ -12,11 +12,13 @@
                                 WHERE pins.user_id = 1' );
 
         $pins = array();
+        $categoryData = [];
         if (count($all_pins) > 0) {
             $u = $db->query('SELECT id,name,user_name, image FROM users WHERE id = 1');
             foreach ($all_pins as $p) {
                 
                 $userImage = DEFAULT_VIZI_IMAGE;
+
 
                 if(strlen($u[0]['image']) > 4)
                 {
@@ -37,6 +39,20 @@
                         'address'       => $p['address']
                     );
             }
+
+
+            $categories = $db->query('SELECT * FROM categories
+                                WHERE user_id = 1' );
+            foreach($categories as $category)
+            {
+                $categoryData[] = [
+                    'categoryId'        => $category['id'],
+                    'categoryName'      => $category['name'],
+                    'categoryImage'     => $category['image']
+                ];
+            }
+        
+            
             $ret['status'] = 'success';
             $ret['message'] = 'Pin found!';
         }
@@ -49,10 +65,11 @@
         $ret['message'] = 'Admin Pins found!';
 
         $response[] = [
-            'id' => '1',
-            'title' => 'Trending Places',
-            'image' => 'https://static.strollup.in/image/uploads/2015/03/Bada_Gumbad_Lodi_Gardens.jpg', 
-            'pins' => $pins
+            'id'            => '1',
+            'title'         => 'Trending Places',
+            'image'         => 'https://static.strollup.in/image/uploads/2015/03/Bada_Gumbad_Lodi_Gardens.jpg', 
+            'pins'          => $pins,
+            'categories'    => $categoryData
         ];
         $ret['data'] = $response;//$pins;
 
