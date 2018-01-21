@@ -47,6 +47,7 @@
             {
                 $categoryData[] = [
                     'categoryId'        => $category['id'],
+                    'id'                => $category['id'],
                     'categoryName'      => $category['name'],
                     'categoryImage'     => $category['image']
                 ];
