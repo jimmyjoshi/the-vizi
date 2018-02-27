@@ -1,7 +1,7 @@
 <?php
 	require '../../config.php';
 	require DOC_ROOT . 'admin/header.php';
-	$pins = $db->query('SELECT *, pins.id as id FROM trending_pins as pins LEFT JOIN categories ON categories.id = pins.category_id WHERE pins.user_id = 1 ');
+	$pins = $db->query('SELECT *, pins.id as id FROM trending_pins as pins LEFT JOIN trending_places ON trending_places.id = pins.category_id WHERE pins.user_id = 1 ');
 ?>
 	<div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-10">
@@ -75,9 +75,9 @@
 		                    				echo '<td>'.$pin['address'].'</td>';
 		                    				echo '<td>'.$pin['lat'].'</td>';
 		                    				echo '<td>'.$pin['lon'].'</td>';
-		                    				echo '<td><a href="'.HOST.'admin/pins/edit.php?id='.$pin['id'].'"><i class="fa fa-edit"></i></a> 
+		                    				echo '<td><a href="'.HOST.'admin/trending-pins/edit.php?id='.$pin['id'].'"><i class="fa fa-edit"></i></a> 
 		                    				&nbsp;
-		                    						<a onclick="return sure();" href="'.HOST.'admin/pins/delete.php?id='.$pin['id'].'"><i class="fa fa-trash-o"></i></a></td>';
+		                    						<a onclick="return sure();" href="'.HOST.'admin/trending-pins/delete.php?id='.$pin['id'].'"><i class="fa fa-trash-o"></i></a></td>';
 		                    			echo '</tr>';
 		                    		}
 		                    	}

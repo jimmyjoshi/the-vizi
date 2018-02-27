@@ -3,11 +3,11 @@
 	if (isset($_GET) && isset($_GET['id']) ) 
 	{
 		global $db;
-		$db->query("DELETE FROM pins WHERE id = :id ", $_GET);
+		$db->query("DELETE FROM trending_pins WHERE id = :id ", $_GET);
 
-		header('Location: ' . HOST . 'admin/pins/index.php?deleted=true');
+		header('Location: ' . HOST . 'admin/trending-pins/index.php?deleted=true');
 	}
 	else
-		header('Location: ' . HOST . 'admin/pins/index.php?deleted=false');
+		header('Location: ' . HOST . 'admin/trending-pins/index.php?deleted=false');
 	die();
 ?>

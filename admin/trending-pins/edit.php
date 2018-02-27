@@ -9,7 +9,7 @@
     {
         $pinId = $_POST['pin_id'];
 
-        $sql = 'UPDATE pins set
+        $sql = 'UPDATE trending_pins set
          
                 
                 title       = "'. $_POST['title'] .'",
@@ -28,14 +28,14 @@
 
                 setTimeout(function()
                 {
-                    window.location.assign('<?php echo HOST ?>admin/pins');
+                    window.location.assign('<?php echo HOST ?>admin/trending-pins');
                 }, 10);
         </script>
         <?php
     }
 
 
-    $currentPin = $db->query('SELECT *, pins.id as id FROM pins left join categories on categories.id = pins.category_id WHERE pins.id = :id ', $_GET);
+    $currentPin = $db->query('SELECT *, pins.id as id FROM trending_pins as pins left join trending_places on trending_places.id = pins.category_id WHERE pins.id = :id ', $_GET);
     $currentPin = $currentPin[0];
 //    pr($currentPin);
 ?>
@@ -47,12 +47,12 @@
     </style>
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2>Edit Pin</h2>
+            <h2>Edit Trending Pin</h2>
             <ol class="breadcrumb">
                 <li><a href="<?php echo HOST ?>admin/dashboard.php">Dashboard</a></li>
-                <li><a href="<?php echo HOST ?>admin/pins/">Pins</a></li>
+                <li><a href="<?php echo HOST ?>admin/trending-pins/">Trending Pins</a></li>
                 <li class="active"><strong>New</strong></li>
-                <li class="text-right"><a href="<?php echo HOST ?>admin/pins">View All</a></li>
+                <li class="text-right"><a href="<?php echo HOST ?>admin/trending-pins">View All</a></li>
             </ol>
 
         </div>
@@ -77,7 +77,7 @@
                             <div class="col-sm-10">
                                 <select name="category_id" class="form-control" id="category_id">
                                 <?php
-                                    $pins = $db->query('SELECT DISTINCT(id), name FROM categories order by id');
+                                    $pins = $db->query('SELECT DISTINCT(id), name FROM trending_places order by id');
 
                                     foreach($pins as $pin)
                                     {
@@ -118,7 +118,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
-                                <a href="<?php echo HOST ?>admin/categories/" class="btn btn-white">Cancel</a>
+                                <a href="<?php echo HOST ?>admin/trending-places/" class="btn btn-white">Cancel</a>
                                 <input type="hidden" id="lat" name="lat" value="<?php echo $currentPin['lat'];?>">
                                 <input type="hidden" id="long" name="long" value="<?php echo $currentPin['lon'];?>">
                                 <input type="hidden" id="user_id" name="user_id" value="1">
