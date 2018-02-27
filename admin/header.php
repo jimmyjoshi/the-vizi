@@ -80,6 +80,8 @@
             $all_opti = $all_cats = $all_pros = $all_levs = $all_usrs = $all_adms = $all_dom = $all_pages = '';
             $new_opti = $my_profile = $new_cat = $new_pro = $new_lev = $new_usr = $abs_usr = $new_dom = $new_page = '';
 
+            $trendingMenu = $trendingPlace = $createTrendingPlace = '';
+
             if (strpos( $_SERVER['REQUEST_URI'], 'dashboard') != false)
                 $dash = 'active';
             
@@ -92,6 +94,21 @@
                 $new_cat = 'active';
                 $all_cats = '';
             }
+
+            if (strpos( $_SERVER['REQUEST_URI'], 'trending-places/new') != false)
+            {
+                $trendingMenu  = 'active';
+                $createTrendingPlace = 'active';
+            }
+
+
+            if (strpos( $_SERVER['REQUEST_URI'], 'trending-places') != false)
+            {
+                $trendingMenu  = 'active';
+                $trendingPlace = $createTrendingPlace == 'active' ? '' :'active';
+            }
+
+
 
             if (strpos( $_SERVER['REQUEST_URI'], 'admin/users/admin') != false)
                 $all_adms = $usrs = 'active';
@@ -141,13 +158,31 @@
                             </ul>
                         </li>
 
-                         <li class="">
+                        <li class="">
                             <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Admin Pins</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li class=""><a href="<?php echo HOST ?>admin/pins">All Pins</a></li>
                                 <li class=""><a href="<?php echo HOST ?>admin/pins/new.php">Create Pin</a></li>
                             </ul>
                         </li>
+
+                        <li class="<?php echo $trendingMenu; ?>">
+                            <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Trending Places</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li class="<?php echo $trendingPlace; ?>"><a href="<?php echo HOST ?>admin/trending-places">All Trending Places</a></li>
+                                <li class="<?php echo $createTrendingPlace; ?>"><a href="<?php echo HOST ?>admin/trending-places/new.php">Add New Trending Place</a></li>
+                            </ul>
+                        </li>
+
+                         <li class="">
+                            <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Trending Pins</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li class=""><a href="<?php echo HOST ?>admin/trending-pins">All Trending Pins</a></li>
+                                <li class=""><a href="<?php echo HOST ?>admin/trending-pins/new.php">Create Trending Pin</a></li>
+                            </ul>
+                        </li>
+
+                        
 
 
                         <li class="<?php echo $usrs; ?>">
