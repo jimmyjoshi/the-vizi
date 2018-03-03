@@ -6,7 +6,7 @@
 
 
     if ($ret['message'] == '') {
-        $categories = $db->query('SELECT * FROM trending_places
+        $categories = $db->query('SELECT * FROM categories
                                 WHERE user_id = 1' );
         $pins = array();
         $cresponse = [];
@@ -15,7 +15,7 @@
             $sr = 0;
             foreach ($categories as $c) 
             {
-                $categoryPins = $db->query('SELECT * FROM trending_pins');
+                $categoryPins = $db->query('SELECT * FROM pins WHERE user_id = 1 AND category_id = '.$c['id']);
 
 
                 $cresponse[$sr] = [
