@@ -45,6 +45,28 @@
 
                 $if_follow = $db->single('SELECT id FROM follow WHERE follower_id = ' . $_REQUEST['user_id'] . ' AND following_id = ' . $u['id']);
                 $u['following'] = $if_follow != '' ? 1 : 0;
+
+                
+                 $geocode=file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?latlng='.$u['lat'].','.$u['lon'].'&sensor=false');
+
+                $output = json_decode($geocode);
+                $city   = '';
+                
+                if(!empty($output->results[0]->address_components[2]->long_name))
+                {
+                    $city = $output->results[0]->address_components[2]->long_name;
+                }
+                else
+                {
+                    $city = $output->results[0]->address_components[3]->long_name;    
+                }
+
+                if(!isset($u['address']))
+                {
+                    $u['address'] = $city;    
+                }
+                
+                $u['user_city'] = $city;
                 $usr[] = $u;
             }
         }

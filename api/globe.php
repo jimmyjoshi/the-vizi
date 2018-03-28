@@ -9,7 +9,7 @@
     }
 
     if ($ret['message'] == '') {
-	    $categories = $db->column('SELECT distinct(address) as city FROM pins WHERE user_id = '.$_REQUEST['user_id']);
+	    $categories = $db->column('SELECT distinct(address) as city FROM pins WHERE user_id = '.$_REQUEST['user_id'] . ' order by address');
 	    $ret['status'] = 'Success';
 	    $ret['message'] = 'Categoies found!';
 	    $ret['data'] = $categories;

@@ -20,8 +20,11 @@
 
                 $cresponse[$sr] = [
                     'categoryId'        => $c['id'],
+                    'id'                => $c['id'],
                     'categoryTitle'     => $c['name'],
+                    'name'              => $c['name'],
                     'categoryImage'     => $c['image'],
+                    'image'             => $c['image'],
                     'pin'               => []
                 ];
 

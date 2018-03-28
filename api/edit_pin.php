@@ -54,6 +54,7 @@
         );
 
         $title      = $_REQUEST['title'];
+        $categoryId = $_REQUEST['category_id'];
         $lat        = $_REQUEST['lat'];
         $lon        = $_REQUEST['lon'];
         $address    = $add;
@@ -66,6 +67,7 @@
                 title = "'.$title.'",
                 lat = "'.$lat.'",
                 lon = "'.$lon.'",
+                category_id = "'. $categoryId .'",
                 address = "'.$address.'",
                 note = "'.$note.'"
                 WHERE id = "'.$pin_id.'"
