@@ -15,7 +15,7 @@
             $sr = 0;
             foreach ($categories as $c) 
             {
-                $categoryPins = $db->query('SELECT * FROM trending_pins');
+                $categoryPins = $db->query('SELECT * FROM trending_pins where category_id = ' . $c['id']);
 
 
                 $cresponse[$sr] = [
