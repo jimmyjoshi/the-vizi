@@ -37,13 +37,38 @@
 
                 foreach($categoryPins as $p)
                 {
+                    $imgs = $db->query('SELECT image as image FROM trending_media WHERE pin_id = ' . $p['id']);
+
+                    $pinImages = [];
+                    foreach($imgs as $imgx)
+                    {
+                        if(!isset($imgx['image']) || strlen($imgx['image']) < 4)
+                        {
+                            $imgx['image'] = DEFAULT_VIZI_IMAGE ; 
+                        }
+
+                        $pinImages[] = $imgx;
+                    }
+
+                    if(count($pinImages) < 1)
+                    {
+                        $pinImages[] = [
+                            'image' => DEFAULT_VIZI_IMAGE
+                        ];
+                    }
+                    
+                    
                     $cresponse[$sr]['pin'][] = [
                         'userId'        => $u[0]['id'],
                         'name'          => isset($u[0]['name']) ? $u[0]['name'] : '',
                         'user'          => $u[0]['user_name'],
                         'image'         => $userImage,
                         'title'         => $p['title'],
+                        'note'         => $p['note'],
                         'pinId'         => (int) $p['id'],
+                        'pin_id'        => (int) $p['id'],
+                        'bgimage'       => isset($c['image']) ? $c['image'] : DEFAULT_VIZI_IMAGE,
+                        'images'        => $pinImages,
                         'lat'           => $p['lat'],
                         'lon'           => $p['lon'],
                         'address'       => $p['address']

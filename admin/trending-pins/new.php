@@ -35,7 +35,7 @@
                     $upload_to = PUBLIC_PATH . 'pins/' . $image;
                     $done = move_uploaded_file($_FILES['image']['tmp_name'][$k], $upload_to);
                     
-                    $db->query('INSERT INTO media (pin_id, image) VALUES(:pin_id, :image)', array('pin_id' => $pin_id, 'image' => PUBLIC_URL . 'pins/' . $image) );
+                    $db->query('INSERT INTO trending_media (pin_id, image) VALUES(:pin_id, :image)', array('pin_id' => $pin_id, 'image' => PUBLIC_URL . 'pins/' . $image) );
                 }
             }
         }
