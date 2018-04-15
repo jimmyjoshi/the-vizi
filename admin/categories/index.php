@@ -2,7 +2,7 @@
 	require '../../config.php';
 	require DOC_ROOT . 'admin/header.php';
 
-	$categories = $db->query('SELECT * FROM categories WHERE is_trending != 1 AND user_id IN (SELECT id FROM users WHERE role LIKE "admin" ) ');
+	$categories = $db->query('SELECT * FROM categories WHERE user_id IN (SELECT id FROM users WHERE role LIKE "admin" ) ');
 ?>
 	<div class="row wrapper border-bottom white-bg page-heading">
 		<div class="col-lg-10">
