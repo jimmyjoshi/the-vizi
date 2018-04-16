@@ -16,7 +16,7 @@
         
         $usernotifications = $db->query('SELECT * FROM notifications WHERE type = "FOLLOW" and user_id = ' . $_REQUEST['user_id'].' ORDER BY created_at DESC');
 
-        $otherNotifications = $db->query('SELECT notifications.* FROM follow LEFT JOIN notifications on notifications.obj_id = follow.id WHERE notifications.type = "follow" AND ( follower_id = ' . $_REQUEST['user_id'].' OR following_id = ' . $_REQUEST['user_id'].') order by id desc');
+        $otherNotifications = $db->query('SELECT notifications.* FROM follow LEFT JOIN notifications on notifications.obj_id = follow.id WHERE notifications.type LIKE "%follow%"  AND ( follower_id = ' . $_REQUEST['user_id'].' OR following_id = ' . $_REQUEST['user_id'].') order by id desc');
         
         $allnotifications 	= array_merge($usernotifications, $otherNotifications);
 
@@ -42,7 +42,7 @@ foreach($allnotifications as $k=>$v) {
 
             	$processed[] = $notification['id'];
 
-                if($notification['type'] == 'FOLLOW' && $userInfo)   
+                if($notification['type'] == 'FOLLOW' || $notification['type'] == 'follow' && $userInfo)   
                 {
                     $followInfo     = $db->query('SELECT * FROM follow WHERE id = ' . $notification['obj_id']);
 

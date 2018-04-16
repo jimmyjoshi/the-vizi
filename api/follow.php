@@ -1,15 +1,15 @@
 <?php
-	require '../config.php';
-	global $db;
+    require '../config.php';
+    global $db;
 
     $ret = array('status' => 'fail', 'message' => '', 'data' => array());
 
     if (!isset($_REQUEST['user_id']) || $_REQUEST['user_id'] == '') {
-    	$ret['message'] = 'User id can not be blank!';
+        $ret['message'] = 'User id can not be blank!';
     }
 
     if (!isset($_REQUEST['follow_id']) || $_REQUEST['follow_id'] == '') {
-    	$ret['message'] = 'Follow id can not be blank!';
+        $ret['message'] = 'Follow id can not be blank!';
     }
 
     if (!isset($_REQUEST['follow']) || $_REQUEST['follow'] == '') {
@@ -69,7 +69,7 @@
 
             //To the user to whome current user is now following
             $token = can_send($_REQUEST['follower_id']);
-            if ($token) {
+            if ($token && 1==2) {
 
                 require 'push.php';
                 $usrId = $_REQUEST['user_id'];
@@ -91,12 +91,15 @@
             //To all those users who are following user_id
             $user_ids = $db->query($userIdSql);
 
-            if (count($user_ids) > 0) 
+            if (count($user_ids) > 0 && 1==2) 
             {
                 require_once 'push.php';
-                
+                $sr = 0;
                 foreach ($user_ids as $tkn) 
                 {
+                    if($sr > 4)
+                        break;
+
                     $followingSQL = 'SELECT user_name FROM users WHERE id = ' . $_REQUEST['follower_id'];
                     $following_to = $db->single($followingSQL);
 
@@ -109,6 +112,8 @@
                         'badgeCount'    => unread_notification_count($_REQUEST['user_id'])
                     );
                     PushNotifications::iOS($msg_payload, $tkn);
+
+                    $sr++;
                 }
             }
         }
