@@ -19,7 +19,15 @@
     $param = array('follower_id' => $_POST['user_id'], 'follow_id' => $_POST['follow_id'] );
 
     if ($_REQUEST['follow'] == 0) {
-        $db->query('DELETE FROM notifications WHERE type LIKE "FOLLOW" AND obj_id IN ( SELECT id FROM follow WHERE follower_id = '.$_REQUEST['user_id'].' AND following_id = '.$_REQUEST['follow_id'].' )');
+
+        $userId     = $_REQUEST['user_id'];
+        $followerId = $_REQUEST['follower_id'];
+
+        $sql = 'DELETE FROM notifications WHERE type LIKE "FOLLOW" AND obj_id IN( SELECT id FROM follow 
+                WHERE follower_id = '. $userId .' AND following_id = '. $followerId .' )';
+                
+
+        $db->query($sql);
 
         //$db->query('DELETE FROM follow WHERE follower_id = :follower_id AND following_id = :follow_id ', $param);
         $ret['message'] = 'User unfollowed!';
