@@ -89,7 +89,7 @@ foreach($allnotifications as $k=>$v) {
                             }
                             else
                             {
-                                $statement = $otherUserName . ' has sent follow request to You';
+                                $statement = $otherUserName . ' has requested to follow You';
                             }
                         }
 
