@@ -2,6 +2,12 @@
     require '../config.php';
     global $db;
 
+    $myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+    $txt =  json_encode($_REQUEST);
+
+    fwrite($myfile, $txt);
+    fclose($myfile);
+
     $ret = array('status' => 'fail', 'message' => '', 'data' => array());
 
     if (!isset($_REQUEST['user_id']) || $_REQUEST['user_id'] == '') {
@@ -21,33 +27,46 @@
     if ($_REQUEST['follow'] == 0) {
 
         $userId     = $_REQUEST['user_id'];
-        $followerId = $_REQUEST['follower_id'];
+        $followerId = $_REQUEST['follow_id'];
 
-        $sql = 'DELETE FROM notifications WHERE type LIKE "FOLLOW" AND obj_id IN( SELECT id FROM follow 
+        $sql = 'DELETE FROM notifications WHERE notifications.type LIKE "%FOLLOW%" AND obj_id IN( SELECT id FROM follow 
                 WHERE follower_id = '. $userId .' AND following_id = '. $followerId .' )';
 
-
         $db->query($sql);
-
         //$db->query('DELETE FROM follow WHERE follower_id = :follower_id AND following_id = :follow_id ', $param);
         $ret['message'] = 'User unfollowed!';
         $ret['status'] = 'success';
         //Do we have to remove this from notifications list as well ???
     }
     else {
-        $exi = $db->query('SELECT * FROM follow WHERE follower_id = :follower_id AND following_id = :follow_id', $param);
-        if (count($exi) > 0) {
+        $userId     = $_REQUEST['user_id'];
+        $followerId = $_REQUEST['follow_id'];
+
+        $delSql = 'SELECT * FROM follow where follower_id = ' . $followerId . ' AND following_id = '  .$userId; 
+        $exi = $db->query($delSql);
+
+        if (count($exi) > 0) 
+        {
             $ret['message'] = 'You are already following!';
             $ret['status'] = 'success';
         }
-        else {
-
-
-            $singleQuery = 'SELECT is_private FROM users WHERE id = ' . $_POST['follower_id'];
+        else 
+        {
+            $followerId = $_REQUEST['follow_id'];
+            $singleQuery = 'SELECT is_private FROM users WHERE id = ' . $followerId;
 
             $private = $db->single($singleQuery);
-    
-            $db->query('INSERT INTO follow (follower_id, following_id, requested) VALUES(:user_id, :following_id, :requested)', array('user_id' => $_REQUEST['user_id'], 'following_id' => $_REQUEST['follower_id'], "requested" => $private));
+            
+            $userId     = $_REQUEST['user_id'];
+            $followerId = $_REQUEST['follow_id'];
+
+            $insertSql = 'INSERT INTO follow (follower_id, following_id, requested) VALUES(
+                        "'.$userId.'",
+                        "'.$followerId.'",
+                        "'.$private.'"
+                    )';
+
+            $db->query($insertSql);
 
 
             $obj_id = $db->lastInsertId();
@@ -61,6 +80,7 @@
                         "'.$obj_id.'"
                     )'; 
 
+
             $db->query($nsql);
 
 
@@ -68,7 +88,7 @@
             $ret['status'] = 'success';
 
             //To the user to whome current user is now following
-            $token = can_send($_REQUEST['follower_id']);
+           /* $token = can_send($_REQUEST['follower_id']);
             if ($token && 1==2) {
 
                 require 'push.php';
@@ -80,12 +100,12 @@
                     'badgeCount'    => unread_notification_count($_REQUEST['user_id'])
                 );
                 PushNotifications::iOS($msg_payload, $token);
-            }
+            }*/
 
             $usrId      = $_REQUEST['user_id'];
             $followerId = $_REQUEST['follower_id'];
                 
-            $userIdSql = 'SELECT device_id FROM users WHERE id IN ( SELECT follower_id FROM follow 
+            /*$userIdSql = 'SELECT device_id FROM users WHERE id IN ( SELECT follower_id FROM follow 
                         WHERE  following_id = '. $usrId .' AND follower_id != '. $followerId .' ) ';
 
             //To all those users who are following user_id
@@ -115,7 +135,7 @@
 
                     $sr++;
                 }
-            }
+            }*/
         }
     }
 

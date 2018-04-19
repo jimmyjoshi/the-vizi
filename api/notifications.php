@@ -1,11 +1,11 @@
 <?php
-	require '../config.php';
-	global $db;
+    require '../config.php';
+    global $db;
 
     $ret = array('status' => 'fail', 'message' => '', 'data' => array());
 
     if (!isset($_REQUEST['user_id']) || $_REQUEST['user_id'] == '') {
-    	$ret['message'] = 'User id can not be blank!';
+        $ret['message'] = 'User id can not be blank!';
     }
     
     $notifications = array();
@@ -14,116 +14,121 @@
     {
         $resetNotificationCount = $db->query('UPDATE notifications SET is_read = 1 WHERE user_id = ' . $_REQUEST['user_id']);
         
-        $usernotifications = $db->query('SELECT * FROM notifications WHERE type = "FOLLOW" and user_id = ' . $_REQUEST['user_id'].' ORDER BY created_at DESC');
+        $usernotifications = $db->query('SELECT * FROM notifications WHERE type LIKE "%FOLLOW%" and user_id = ' . $_REQUEST['user_id'].' ORDER BY created_at DESC');
 
         $otherNotifications = $db->query('SELECT notifications.* FROM follow LEFT JOIN notifications on notifications.obj_id = follow.id WHERE notifications.type LIKE "%follow%"  AND ( follower_id = ' . $_REQUEST['user_id'].' OR following_id = ' . $_REQUEST['user_id'].') order by id desc');
-        
-        $allnotifications 	= array_merge($usernotifications, $otherNotifications);
 
-$sort = array();
-foreach($allnotifications as $k=>$v) {
-    $sort['id'][$k] = $v['id'];
-    //$sort['text'][$k] = $v['text'];
-}
-        $sort = implode(',', $sort['id']);
- 
- 		
- 		$notifications =  $db->query('SELECT * FROM notifications where id IN ('.$sort.') order by id desc');
+        $allnotifications   = array_merge($usernotifications, $otherNotifications);
 
-        $processed = [];
 
-        $userInfo = $db->query('SELECT user_name, image, address FROM users WHERE id = ' . $_REQUEST['user_id']);   
-        if($notifications)
+        if(isset($allnotifications) && count($allnotifications))
         {
-            foreach($notifications as $notification)
+
+            $sort = array();
+            foreach($allnotifications as $k=>$v) {
+                $sort['id'][$k] = $v['id'];
+                
+            }
+            $sort = implode(',', $sort['id']);
+            
+            $notifications =  $db->query('SELECT * FROM notifications where id IN ('.$sort.') order by id desc');
+
+            $processed = [];
+
+            $userInfo = $db->query('SELECT user_name, image, address FROM users WHERE id = ' . $_REQUEST['user_id']);   
+            if($notifications)
             {
-            	if(in_array($notification['id'], $processed))
-            		continue;
-
-            	$processed[] = $notification['id'];
-
-                if($notification['type'] == 'FOLLOW' || $notification['type'] == 'follow' && $userInfo)   
+                
+                foreach($notifications as $notification)
                 {
-                    $followInfo     = $db->query('SELECT * FROM follow WHERE id = ' . $notification['obj_id']);
-
-
-                    if(! $followInfo)
+                    if(in_array($notification['id'], $processed))
                         continue;
-                    
-                    $followInfo     = $followInfo[0];
 
+                    $processed[] = $notification['id'];
 
-                    if($followInfo['follower_id'] == $_REQUEST['user_id'])
+                    if($notification['type'] == 'FOLLOW' || $notification['type'] == 'follow' && $userInfo)   
                     {
-                        $otherUserId = $followInfo['following_id'];
-                    }
-                    else
-                    {
-                        $otherUserId = $followInfo['follower_id'];
-                    }
-
-                    $otherUser = $db->query('SELECT id, user_name, name, image, address FROM users WHERE id  = ' . $otherUserId);
-                    $otherUser = $otherUser[0];
-
-                    if($otherUser)
-                    {
-                        $otherUserName = $otherUser['name'] ? $otherUser['name'] : $otherUser['user_name'];
+                        $followInfo     = $db->query('SELECT * FROM follow WHERE id = ' . $notification['obj_id']);
 
 
-                        if($followInfo['requested'] == 0)
+                        if(! $followInfo)
+                            continue;
+                        
+                        $followInfo     = $followInfo[0];
+
+
+                        if($followInfo['follower_id'] == $_REQUEST['user_id'])
                         {
-                            if($followInfo['following_id'] == $_REQUEST['user_id'])
-                            {
-                                $statement = $otherUserName . ' is now following You';
-                            }
-                            else
-                            {
-                                $statement = 'You are now following '.  $otherUserName;
-                            }
+                            $otherUserId = $followInfo['following_id'];
                         }
                         else
                         {
-                            if($followInfo['following_id'] == $_REQUEST['user_id'])
+                            $otherUserId = $followInfo['follower_id'];
+                        }
+
+                        $otherUser = $db->query('SELECT id, user_name, name, image, address FROM users WHERE id  = ' . $otherUserId);
+                        $otherUser = $otherUser[0];
+
+                        if($otherUser)
+                        {
+                            $otherUserName = $otherUser['name'] ? $otherUser['name'] : $otherUser['user_name'];
+
+
+                            if($followInfo['requested'] == 0)
                             {
-                                $statement = 'You have sent follow request to '. $otherUserName;
+                                if($followInfo['following_id'] == $_REQUEST['user_id'])
+                                {
+                                    $statement = $otherUserName . ' is now following You';
+                                }
+                                else
+                                {
+                                    $statement = 'You are now following '.  $otherUserName;
+                                }
                             }
                             else
                             {
-                                $statement = $otherUserName . ' has requested to follow You';
+                                if($followInfo['following_id'] == $_REQUEST['user_id'])
+                                {
+                                    $statement = $otherUserName . ' has requested to follow You';
+                                }
+                                else
+                                {
+                                    $statement = 'You have sent follow request to '. $otherUserName;
+                                }
                             }
+
+                            $data[] = array(
+                                'id'        => (int) $notification['obj_id'],
+                                'toUserId'  => $otherUserId,
+                                'text'      => $statement,
+                                'image'     => $otherUser['image'] ? $otherUser['image'] : DEFAULT_VIZI_IMAGE,
+                                'time'      => isset($notification['created_at']) ? time_elapsed_string($notification['created_at']) : '',
+                                'date'      => $notification['created_at'],
+                                'requested' => (bool) $followInfo['requested'] 
+                            );
                         }
 
-                        $data[] = array(
-                            'id'        => (int) $notification['obj_id'],
-                            'toUserId'  => $otherUserId,
-                            'text'      => $statement,
-                            'image'     => $otherUser['image'] ? $otherUser['image'] : DEFAULT_VIZI_IMAGE,
-                            'time'      => isset($notification['created_at']) ? time_elapsed_string($notification['created_at']) : '',
-                            'date'      => $notification['created_at'],
-                            'requested' => (bool) $followInfo['requested'] 
-                        );
                     }
-
                 }
             }
-        }
 
-        usort($data, "cmp");
+            usort($data, "cmp");
 
-        function cmp($a, $b) {
-            if ($a['date'] == $b['date']) {
-                return 0;
+            function cmp($a, $b) {
+                if ($a['date'] == $b['date']) {
+                    return 0;
+                }
+                return ($a['date'] < $b['date']) ? -1 : 1;
             }
-            return ($a['date'] < $b['date']) ? -1 : 1;
+            $ret['data'] = $data;
+            $ret['message'] = 'Notifications found';
+            $ret['status'] = 'success';
         }
 
-        $ret['data'] = $data;
-        $ret['message'] = 'Notifications found';
-        $ret['status'] = 'success';
-        /*else {
+        else {
             $ret['message'] = 'No notifications found';
             $ret['status'] = 'fail';
-        }*/
+        }
     }
 
     echo json_encode($ret);
